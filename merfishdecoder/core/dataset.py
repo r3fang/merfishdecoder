@@ -22,8 +22,8 @@ import xmltodict
 import merfishdecoder
 from merfishdecoder.util import imagereader
 from merfishdecoder.util import dataportal
-from merfishdecoder.data import dataorganization
 from merfishdecoder.data import codebook
+from merfishdecoder.data import dataorganization
 
 TaskOrName = str
 
@@ -64,9 +64,9 @@ class DataSet(object):
         self.rawDataPortal = dataportal.DataPortal.create_portal(
             self.rawDataPath)
 
-        #if not self.rawDataPortal.is_available():
-        #    print('The raw data is not available at %s'.format(
-        #        self.rawDataPath))
+        if not self.rawDataPortal.is_available():
+            print('The raw data is not available at %s'.format(
+                self.rawDataPath))
 
         self.analysisPath = os.sep.join([analysisHome, dataDirectoryName])
         os.makedirs(self.analysisPath, exist_ok=True)
@@ -530,7 +530,7 @@ class MERFISHDataSet(ImageDataSet):
     def get_codebook(self, codebookIndex: int = 0) -> codebook.Codebook:
         return self.codebooks[codebookIndex]
 
-    def get_data_organization(self) -> dataorganization.DataOrganization:
+    def get_data_organization(self):
         return self.dataOrganization
 
     def _import_positions_from_metadata(self):
