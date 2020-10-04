@@ -1,0 +1,154 @@
+#conda create -n md_env pip python=3.6
+#source activate md_env
+#conda install rtree pytables
+#conda install -c conda-forge sharedarray gdal
+
+# sudo yum install mesa-libGL
+#cd /home/rfang/github/
+#pip install -e merfishdecoder
+
+#printf 'DATA_HOME=gc://r3fang/MERFISH_raw_data\nANALYSIS_HOME=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis\nPARAMETERS_HOME=/mnt/gcs-bucket/r3fang/merfish-parameters\n' >~/.merfishdecoderenv
+
+ANALYSIS_DIR="/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/"
+FOV=0
+
+merfishdecoder create-analysis \
+	--data-set-name=MERFISH_test/data \
+	--codebook-name=hMTGE1_V11_codebook_4000.csv \
+	--data-organization-name=hMTGdataorganization_48bit_6z.v11.csv \
+	--microscope-parameter-name=MERFISH_MZ.json \
+	--microscope-chromatic-aberration-name=MERFISH5_chromatic_abberation_profile.refined.p \
+	--position-name=MERFISH_test_positions.csv 
+
+#for ZPOS in 1.0 2.0 3.0 4.0 5.0 6.0; do
+#	merfishdecoder register-images \
+#		--data-set-name=MERFISH_test/data \
+#		--fov=$FOV \
+#		--zpos=$ZPOS \
+#		--output-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif \
+#		--register-drift=True \
+#		--ref-frame-index=0 \
+#		--high-pass-filter-sigma=3 \
+#		--register-color=True \
+#		--save-fiducials=False
+#done
+
+merfishdecoder register-images \
+	--data-set-name=MERFISH_test/data \
+	--fov=$FOV \
+	--zpos=$ZPOS \
+	--output-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif
+
+merfishdecoder register-images \
+	--data-set-name=$DATASET_NAME \
+	--fov=$FOV \
+	--zpos=$ZPOS \
+	--output-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif
+
+
+
+for ZPOS in 1.0 2.0 3.0 4.0 5.0 6.0; do
+	merfishdecoder process-images \
+		--data-set-name=MERFISH_test/data \
+		--fov=$FOV  \
+		--zpos=$ZPOS \
+		--warped-images-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif \
+		--output-name=$ANALYSIS_DIR/processedImages/fov_$FOV\_zpos_$ZPOS.npz
+done
+
+for ZPOS in 1.0 2.0 3.0 4.0 5.0 6.0; do
+	merfishdecoder decode-images \
+		--data-set-name=MERFISH_test/data \
+		--fov=$FOV \
+		--zpos=$ZPOS \
+		--decoding-images-name=$ANALYSIS_DIR/processedImages/fov_$FOV\_zpos_$ZPOS.npz \
+		--output-name=$ANALYSIS_DIR/decodedImages/fov_$FOV\_zpos_$ZPOS.npz \
+		--border-size=80 \
+		--distance-threshold=0.65 \
+		--max-cores=10
+done
+
+merfishdecoder train-psm \
+	--data-set-name=MERFISH_test/data \
+	--decoded-images-name $ANALYSIS_DIR/decodedImages/* \
+	--output-name=pixel_score_machine.pkl \
+	--zpos-num=50
+
+for ZPOS in 1.0 2.0 3.0 4.0 5.0 6.0; do
+	merfishdecoder extract-barcodes \
+		--data-set-name=MERFISH_test/data \
+		--fov=$FOV \
+		--zpos=$ZPOS \
+		--decoded-images-name=$ANALYSIS_DIR/decodedImages/fov_$FOV\_zpos_$ZPOS.npz \
+		--psm-name=pixel_score_machine.pkl \
+		--output-name=decodedBarcodes/fov_$FOV\_zpos_$ZPOS.h5
+done
+
+merfishdecoder export-barcodes \
+	--data-set-name=MERFISH_test/data \
+	--decoded-barcodes-dir=decodedBarcodes \
+	--output-name=$ANALYSIS_DIR/exportedBarcodes/barcodes.h5 \
+	--zpos-num=100 \
+	--mis-identification-rate=0.05 \
+	--min-area=3 \
+	--max-area=100
+
+for ZPOS in 1.0 2.0 3.0 4.0 5.0 6.0;
+do
+	merfishdecoder segmentation \
+		--data-set-name=MERFISH_test/data \
+		--fov=$FOV \
+		--zpos=$ZPOS \
+		--warped-images-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif \
+		--output-name=$ANALYSIS_DIR/segmentedImages/fov_$FOV\_zpos_$ZPOS\_DAPI.npz \
+		--feature-name=DAPI 
+	merfishdecoder segmentation \
+		--data-set-name=MERFISH_test/data \
+		--fov=$FOV \
+		--zpos=$ZPOS \
+		--warped-images-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif \
+		--output-name=$ANALYSIS_DIR/segmentedImages/fov_$FOV\_zpos_$ZPOS\_polyT.npz \
+		--feature-name=polyT 
+done
+
+for ZPOS in 1.0 2.0 3.0 4.0 5.0 6.0; do
+	merfishdecoder extract-features \
+		--data-set-name=MERFISH_test/data \
+		--fov=$FOV \
+		--zpos=$ZPOS \
+		--segmented-images-name=$ANALYSIS_DIR/segmentedImages/fov_$FOV\_zpos_$ZPOS\_DAPI.npz \
+		--output-name=$ANALYSIS_DIR/segmentedFeatures/fov_$FOV\_zpos_$ZPOS\_DAPI
+	merfishdecoder extract-features \
+		--data-set-name=MERFISH_test/data \
+		--fov=$FOV \
+		--zpos=$ZPOS \
+		--segmented-images-name=$ANALYSIS_DIR/segmentedImages/fov_$FOV\_zpos_$ZPOS\_polyT.npz \
+		--output-name=$ANALYSIS_DIR/segmentedFeatures/fov_$FOV\_zpos_$ZPOS\_polyT
+done
+
+merfishdecoder export-features \
+	--data-set-name=MERFISH_test/data \
+	--segmented-features-name $ANALYSIS_DIR/segmentedFeatures/fov_*_DAPI \
+	--output-name=exportedFeatures/DAPI \
+	--min-zplane=3 \
+	--border-size=80
+
+merfishdecoder export-features \
+	--data-set-name=MERFISH_test/data \
+	--segmented-features-name $ANALYSIS_DIR/segmentedFeatures/fov_*_polyT \
+	--output-name=exportedFeatures/polyT \
+	--min-zplane=3 \
+	--border-size=80
+
+
+
+
+
+
+
+
+
+
+
+
+
