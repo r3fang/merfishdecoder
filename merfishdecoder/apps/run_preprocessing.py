@@ -39,6 +39,12 @@ def run_job(dataSetName: str = None,
                   highPassFilterSigma is None, high pass filter will
                   not be performed.
     """
+    # dataSetName = "MERFISH_test/data"
+    # fov = 3
+    # zpos = 3.0
+    # warpedImagesName = "/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_3_zpos_3.0.tif"
+    # outputName = "/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_3_zpos_3.0.npz"
+
     # check points
     utilities.print_checkpoint("Process MERFISH images")
     utilities.print_checkpoint("Start")
@@ -70,17 +76,31 @@ def run_job(dataSetName: str = None,
             fiducialImage = False,
             sigma = highPassFilterSigma)
 
+    # calcualte scale factor
+    scaleFactors = preprocessing.estimate_scale_factors(
+        obj = zp,
+        frameNames = zp.get_readout_name())
+            
     # normalize image intensity
     zp = preprocessing.scale_readout_images(
         obj = zp,
         frameNames = zp.get_bit_name(),
-        scaleFactors = None)
+        scaleFactors = scaleFactors)
 
     # save processed images
     np.savez_compressed(
         outputName, 
         zp.get_readout_images())
     
+    # save scale factor
+    scaleFactors = pd.DataFrame(scaleFactors.items())
+    scaleFactors.columns = ["frameName", "value"]
+    prefix = os.path.splitext(outputName)[0]
+    scaleFactors.to_csv(
+        prefix + "_scale_factor.csv",
+        header = True,
+        index = False)
+
     # check points
     utilities.print_checkpoint("Done")
     

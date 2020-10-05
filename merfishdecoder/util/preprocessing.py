@@ -15,6 +15,7 @@ def scale_readout_images(obj: zplane.Zplane = None,
                using existed scale factor profiles
 
     """
+    
     frameNames = obj.get_readout_name() \
         if frameNames is None else frameNames
     if scaleFactors is None:

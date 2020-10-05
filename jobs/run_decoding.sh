@@ -1,29 +1,29 @@
 #!/bin/bash
-#SBATCH --time=05:00:00
+#SBATCH --time=10:00:00
+#SBATCH --partition=n1-standard-2
 #SBATCH --nodes=1
-#SBATCH --mem=5g
+#SBATCH --mem=7g
 #SBATCH --ntasks-per-node=2
-#SBATCH --job-name="decoding"
-#SBATCH --output=decoding_%a.out
-#SBATCH --error=decoding_%a.err
+#SBATCH --job-name=decoding
+#SBATCH --output=decoding_%A_%a.out
+#SBATCH --error=decoding_%A_%a.err
 
 # exit when any command fails
 set -e
 source activate md_env
 
-#FOV=${SLURM_ARRAY_TASK_ID}
-FOV=781
+FOV=${SLURM_ARRAY_TASK_ID}
 ZPOSES="1.0,2.0,3.0,4.0,5.0,6.0"
 DATASET_NAME=20200303_hMTG_V11_4000gene_best_sample/data
-ANALYSIS_PATH=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/${DATASET_NAME}
-PSM_NAME=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/pixel_score_machine.pkl
-MAX_CORES=20
+ANALYSIS_PATH=/home/r3fang_g_harvard_edu/merfish_analysis/${DATASET_NAME}
+MERFISHDECODER=$HOME/miniconda/envs/md_env/bin/merfishdecoder
+MAX_CORES=1
 
 cd ${ANALYSIS_PATH}
 
 IFS=',' read -ra ZPOSLIST <<< "$ZPOSES"
 for ZPOS in ${ZPOSLIST[@]}; do
-	python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images \
+	python $MERFISHDECODER register-images \
 		--data-set-name=${DATASET_NAME} \
 		--fov=${FOV} \
 		--zpos=${ZPOS} \
@@ -37,7 +37,7 @@ for ZPOS in ${ZPOSLIST[@]}; do
 done
 
 for ZPOS in ${ZPOSLIST[@]}; do
-	python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images \
+	python $MERFISHDECODER process-images \
 		--data-set-name=${DATASET_NAME} \
 		--fov=${FOV}  \
 		--zpos=${ZPOS} \
@@ -47,7 +47,7 @@ for ZPOS in ${ZPOSLIST[@]}; do
 done
 
 for ZPOS in ${ZPOSLIST[@]}; do
-	python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images \
+	python $MERFISHDECODER decode-images \
 		--data-set-name=${DATASET_NAME} \
 		--fov=${FOV} \
 		--zpos=${ZPOS} \
@@ -55,12 +55,12 @@ for ZPOS in ${ZPOSLIST[@]}; do
 		--output-name=${ANALYSIS_PATH}/decodedImages/fov_${FOV}_zpos_${ZPOS}.npz \
 		--max-cores=$MAX_CORES \
 		--border-size=80 \
-		--distance-threshold=0.65 \
+		--distance-threshold=0.6 \
 		>> logs/fov_${FOV}_zpos_${ZPOS}.log
 done
 
 for ZPOS in ${ZPOSLIST[@]}; do
-	python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-barcodes \
+	python $MERFISHDECODER extract-barcodes \
 		--data-set-name=${DATASET_NAME} \
 		--fov=${FOV} \
 		--zpos=${ZPOS} \
@@ -72,7 +72,7 @@ for ZPOS in ${ZPOSLIST[@]}; do
 done
 
 for ZPOS in ${ZPOSLIST[@]}; do
-	python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation \
+	python $MERFISHDECODER segmentation \
 		--data-set-name=${DATASET_NAME} \
 		--fov=$FOV \
 		--zpos=$ZPOS \
@@ -85,7 +85,7 @@ for ZPOS in ${ZPOSLIST[@]}; do
 done
 
 for ZPOS in ${ZPOSLIST[@]}; do
-	python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation \
+	python $MERFISHDECODER segmentation \
 		--data-set-name=${DATASET_NAME} \
 		--fov=$FOV \
 		--zpos=$ZPOS \
@@ -98,7 +98,7 @@ for ZPOS in ${ZPOSLIST[@]}; do
 done
 
 for ZPOS in ${ZPOSLIST[@]}; do
-	python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features \
+	python $MERFISHDECODER extract-features \
 		--data-set-name=${DATASET_NAME} \
 		--fov=${FOV} \
 		--zpos=${ZPOS} \
@@ -108,7 +108,7 @@ for ZPOS in ${ZPOSLIST[@]}; do
 done
 
 for ZPOS in ${ZPOSLIST[@]}; do
-	python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features \
+	python $MERFISHDECODER extract-features \
 		--data-set-name=${DATASET_NAME} \
 		--fov=${FOV} \
 		--zpos=${ZPOS} \

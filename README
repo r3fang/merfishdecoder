@@ -25,12 +25,12 @@ ANALYSIS_DIR="/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/
 FOV=0
 
 merfishdecoder create-analysis \
-	--data-set-name=MERFISH_test/data \
+	--data-set-name=20200303_hMTG_V11_4000gene_best_sample/data \
 	--codebook-name=hMTGE1_V11_codebook_4000.csv \
 	--data-organization-name=hMTGdataorganization_48bit_6z.v11.csv \
 	--microscope-parameter-name=MERFISH_MZ.json \
-	--microscope-chromatic-aberration-name=MERFISH5_chromatic_abberation_profile.refined.p \
-	--position-name=MERFISH_test_positions.csv 
+	--microscope-chromatic-aberration-name=MERFIFH_MZ_ca_profile_2020_10_01_.pkl \
+	--position-name=20200303_hMTG_V11_4000gene_best_sample_positions.csv 
 
 #for ZPOS in 1.0 2.0 3.0 4.0 5.0 6.0; do
 #	merfishdecoder register-images \
