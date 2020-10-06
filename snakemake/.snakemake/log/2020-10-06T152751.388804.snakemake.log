@@ -1,0 +1,63 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 5
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	assignBarcodes_DAPI
+	1	assignBarcodes_polyT
+	30	decoding
+	1	exportBarcodes
+	1	exportFeatures
+	1	exportGeneFeatureMatrix
+	30	extractBarcodes
+	1	filterBarcodes
+	1	filterBarcodesFeature
+	1	filterFeatures
+	30	preprocessing
+	5	registration
+	30	segmentation_DAPI
+	30	segmentation_polyT
+	1	trainPSM
+	165
+
+[Tue Oct  6 15:27:52 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_1.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_2.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_3.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_4.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_5.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_registration.log
+    jobid: 162
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=2
+
+
+[Tue Oct  6 15:27:52 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_4_zpos_1.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_4_zpos_2.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_4_zpos_3.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_4_zpos_4.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_4_zpos_5.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_4_zpos_6.0_registration.log
+    jobid: 164
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=4
+
+
+[Tue Oct  6 15:27:52 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_0_zpos_1.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_0_zpos_2.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_0_zpos_3.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_0_zpos_4.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_0_zpos_5.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_0_zpos_6.0_registration.log
+    jobid: 160
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0
+
+
+[Tue Oct  6 15:27:52 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_1_zpos_1.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_1_zpos_2.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_1_zpos_3.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_1_zpos_4.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_1_zpos_5.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_1_zpos_6.0_registration.log
+    jobid: 161
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1
+
+
+[Tue Oct  6 15:27:52 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_3_zpos_1.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_3_zpos_2.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_3_zpos_3.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_3_zpos_4.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_3_zpos_5.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_3_zpos_6.0_registration.log
+    jobid: 163
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=3
+

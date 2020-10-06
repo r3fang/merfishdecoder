@@ -20,7 +20,9 @@ def parse_args():
     add_segmentation(subparsers)
     add_extract_features(subparsers)
     add_export_features(subparsers)
+    add_filter_features(subparsers)
     add_barcode_assignment(subparsers)
+    add_export_gene_feature_matrix(subparsers)
 
     if len(sys.argv) > 1:
         if (sys.argv[1] == '--version' or sys.argv[1] == '-v'):
@@ -80,7 +82,7 @@ def parse_args():
         from merfishdecoder.apps import run_train_psm
         run_train_psm.run_job(
             dataSetName=args.data_set_name,
-            decodedImagesName=args.decoded_images_name,
+            decodedImagesDir=args.decoded_images_dir,
             outputName=args.output_name,
             zposNum=args.zpos_num)
     elif args.command == "extract-barcodes":
@@ -136,7 +138,13 @@ def parse_args():
             dataSetName=args.data_set_name,
             segmentedFeaturesName=args.segmented_features_name,
             outputName=args.output_name,
-            bufferSize=args.buffer_size,
+            bufferSize=args.buffer_size)
+    elif args.command == "filter-features":
+        from merfishdecoder.apps import run_filter_features
+        run_filter_features.run_job(
+            dataSetName=args.data_set_name,
+            exportedFeaturesName=args.exported_features_name,
+            outputName=args.output_name,
             minZplane=args.min_zplane,
             borderSize=args.border_size)
     elif args.command == "assign-barcodes":
@@ -148,6 +156,14 @@ def parse_args():
             outputName=args.output_name,
             maxCores=args.max_cores,
             bufferSize=args.buffer_size)
+    elif args.command == "export-gene-feature-matrix":
+        from merfishdecoder.apps import run_export_gene_feature_matrix
+        run_export_gene_feature_matrix.run_job(
+            dataSetName=args.data_set_name,
+            barcodesName=args.barcodes_name,
+            featuresName=args.features_name,
+            outputName=args.output_name,
+            maxCores=args.max_cores)
     else:
         print("command %s not found" % args.command)
 
@@ -359,10 +375,10 @@ def add_train_psm(subparsers):
                                       required=True,
                                       help="MERFISH dataset name.")
 
-     parser_train_psm_req.add_argument("--decoded-images-name",
-                                     nargs="+",
+     parser_train_psm_req.add_argument("--decoded-images-dir",
+                                     type=str,
                                      required=True,
-                                     help="A list of decoded images.")
+                                     help="Directory that contains all the decoded images.")
 
      parser_train_psm_req.add_argument("--output-name",
                                      type=str,
@@ -603,15 +619,38 @@ def add_export_features(subparsers):
                                      default=15,
                                      help="Buffer size for connecting features between zplanes.")
 
-    parser_export_features_opt.add_argument("--min-zplane",
+def add_filter_features(subparsers):
+    parser_filter_features = subparsers.add_parser(
+         "filter-features",
+         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+         help="Filter features.")
+    
+    parser_filter_features_req = parser_filter_features.add_argument_group("required inputs")
+    parser_filter_features_req.add_argument("--data-set-name",
+                                     type=str,
+                                     required=True,
+                                     help="MERFISH dataset name.")
+
+    parser_filter_features_req.add_argument("--exported-features-name",
+                                     type=str, 
+                                     required=True,
+                                     help="Exported feature file names.")
+
+    parser_filter_features_req.add_argument("--output-name",
+                                     type=str,
+                                     required=True,
+                                     help="Output file name.")
+
+    parser_filter_features_opt = parser_filter_features.add_argument_group("optional inputs")
+    parser_filter_features_opt.add_argument("--min-zplane",
                                      type=int,
                                      default=3,
-                                     help="Min number of zplane for an exported feature.")
+                                     help="Min zplane.")
 
-    parser_export_features_opt.add_argument("--border-size",
+    parser_filter_features_opt.add_argument("--border-size",
                                      type=int,
-                                     default=80,
-                                     help="Number of pixels to be ignored from the border.")
+                                     default=70,
+                                     help="Number of pixels are considered to be border.")
 
 def add_barcode_assignment(subparsers):
     parser_barcode_assignment = subparsers.add_parser(
@@ -650,6 +689,40 @@ def add_barcode_assignment(subparsers):
                                      type=float,
                                      default=0,
                                      help="Buffer size.")
+
+def add_export_gene_feature_matrix(subparsers):
+    parser_export_gene_feature = subparsers.add_parser(
+        "export-gene-feature-matrix",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+        help="Export gene feature matrix.")
+    
+    parser_export_gene_feature_req = parser_export_gene_feature.add_argument_group("required inputs")
+    parser_export_gene_feature_req.add_argument("--data-set-name",
+                                     type=str,
+                                     required=True,
+                                     help="MERFISH dataset name.")
+
+    parser_export_gene_feature_req.add_argument("--barcodes-name",
+                                     type=str,
+                                     required=True,
+                                     help="Barcode file name.")
+
+    parser_export_gene_feature_req.add_argument("--features-name",
+                                     type=str,
+                                     required=True,
+                                     help="Feature file name.")
+
+    parser_export_gene_feature_req.add_argument("--output-name",
+                                     type=str,
+                                     required=True,
+                                     help="Output file name.")
+
+    parser_export_gene_feature_opt = parser_export_gene_feature.add_argument_group("optional inputs")
+    parser_export_gene_feature_opt.add_argument("--max-cores",
+                                     type=int,
+                                     default=1,
+                                     help="Max number of CPU cores.")
+
 
 def str2bool(v):
      ## adapted from the answer by Maxim at

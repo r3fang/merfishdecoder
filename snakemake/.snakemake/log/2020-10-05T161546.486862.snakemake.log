@@ -1,0 +1,961 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 20
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	12	decoding
+	12	extractFeatures_DAPI
+	12	extractFeatures_polyT
+	12	pre
+	12	registration
+	12	segmentation_DAPI
+	12	segmentation_polyT
+	1	trainPSM
+	86
+
+[Mon Oct  5 16:15:46 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_6.0.log
+    jobid: 13
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=6.0
+
+
+[Mon Oct  5 16:15:46 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log
+    jobid: 2
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=1.0
+
+
+[Mon Oct  5 16:15:46 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_3.0.log
+    jobid: 4
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=3.0
+
+
+[Mon Oct  5 16:15:46 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_5.0.log
+    jobid: 6
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=5.0
+
+
+[Mon Oct  5 16:15:46 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_1.0.log
+    jobid: 8
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=1.0
+
+
+[Mon Oct  5 16:15:46 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_3.0.log
+    jobid: 10
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=3.0
+
+
+[Mon Oct  5 16:15:46 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_5.0.log
+    jobid: 12
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=5.0
+
+
+[Mon Oct  5 16:15:46 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_2.0.log
+    jobid: 3
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=2.0
+
+
+[Mon Oct  5 16:15:46 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_4.0.log
+    jobid: 5
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=4.0
+
+
+[Mon Oct  5 16:15:46 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_6.0.log
+    jobid: 7
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=6.0
+
+
+[Mon Oct  5 16:15:46 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_2.0.log
+    jobid: 9
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=2.0
+
+
+[Mon Oct  5 16:15:46 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_4.0.log
+    jobid: 11
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=4.0
+
+[Mon Oct  5 16:18:07 2020]
+Finished job 4.
+1 of 86 steps (1%) done
+
+[Mon Oct  5 16:18:07 2020]
+rule pre:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_3.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_3.0.log
+    jobid: 16
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=3.0
+
+
+[Mon Oct  5 16:18:07 2020]
+rule segmentation_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_3.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_3.0_polyT.log
+    jobid: 40
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=3.0
+
+
+[Mon Oct  5 16:18:07 2020]
+rule segmentation_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_3.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_3.0_DAPI.log
+    jobid: 28
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=3.0
+
+[Mon Oct  5 16:18:30 2020]
+Finished job 2.
+2 of 86 steps (2%) done
+
+[Mon Oct  5 16:18:31 2020]
+rule segmentation_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_1.0_polyT.log
+    jobid: 38
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=1.0
+
+
+[Mon Oct  5 16:18:32 2020]
+rule pre:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_1.0.log
+    jobid: 14
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=1.0
+
+
+[Mon Oct  5 16:18:32 2020]
+rule segmentation_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_1.0_DAPI.log
+    jobid: 26
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=1.0
+
+[Mon Oct  5 16:18:35 2020]
+Finished job 13.
+3 of 86 steps (3%) done
+
+[Mon Oct  5 16:18:35 2020]
+rule pre:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_6.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_6.0.log
+    jobid: 25
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=6.0
+
+
+[Mon Oct  5 16:18:35 2020]
+rule segmentation_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_6.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_6.0_DAPI.log
+    jobid: 37
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=6.0
+
+
+[Mon Oct  5 16:18:36 2020]
+rule segmentation_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_6.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_6.0_polyT.log
+    jobid: 49
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=6.0
+
+[Mon Oct  5 16:18:42 2020]
+Finished job 10.
+4 of 86 steps (5%) done
+[Mon Oct  5 16:18:42 2020]
+Finished job 11.
+5 of 86 steps (6%) done
+
+[Mon Oct  5 16:18:42 2020]
+rule pre:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_4.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_4.0.log
+    jobid: 23
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=4.0
+
+
+[Mon Oct  5 16:18:43 2020]
+rule segmentation_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_3.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_3.0_DAPI.log
+    jobid: 34
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=3.0
+
+
+[Mon Oct  5 16:18:43 2020]
+rule segmentation_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_4.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_4.0_DAPI.log
+    jobid: 35
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=4.0
+
+
+[Mon Oct  5 16:18:44 2020]
+rule pre:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_3.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_3.0.log
+    jobid: 22
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=3.0
+
+[Mon Oct  5 16:18:45 2020]
+Finished job 7.
+6 of 86 steps (7%) done
+
+[Mon Oct  5 16:18:45 2020]
+rule segmentation_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_6.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_6.0_polyT.log
+    jobid: 43
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=6.0
+
+[Mon Oct  5 16:18:46 2020]
+Finished job 3.
+7 of 86 steps (8%) done
+
+[Mon Oct  5 16:18:46 2020]
+rule segmentation_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_4.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_4.0_polyT.log
+    jobid: 47
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=4.0
+
+[Mon Oct  5 16:18:47 2020]
+Finished job 9.
+8 of 86 steps (9%) done
+
+[Mon Oct  5 16:18:47 2020]
+rule segmentation_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_3.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_3.0_polyT.log
+    jobid: 46
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=3.0
+
+[Mon Oct  5 16:18:47 2020]
+Finished job 6.
+9 of 86 steps (10%) done
+
+[Mon Oct  5 16:18:47 2020]
+rule segmentation_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_5.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_5.0_polyT.log
+    jobid: 42
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=5.0
+
+[Mon Oct  5 16:18:47 2020]
+Finished job 5.
+10 of 86 steps (12%) done
+
+[Mon Oct  5 16:18:47 2020]
+rule segmentation_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_4.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_4.0_polyT.log
+    jobid: 41
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=4.0
+
+[Mon Oct  5 16:18:47 2020]
+Finished job 12.
+11 of 86 steps (13%) done
+[Mon Oct  5 16:18:47 2020]
+Finished job 8.
+12 of 86 steps (14%) done
+
+[Mon Oct  5 16:18:47 2020]
+rule segmentation_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_2.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_2.0_polyT.log
+    jobid: 45
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=2.0
+
+
+[Mon Oct  5 16:18:48 2020]
+rule segmentation_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_2.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_2.0_polyT.log
+    jobid: 39
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=2.0
+
+[Mon Oct  5 16:19:31 2020]
+Finished job 28.
+13 of 86 steps (15%) done
+
+[Mon Oct  5 16:19:31 2020]
+rule extractFeatures_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_3.0_DAPI.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_3.0_DAPI.log
+    jobid: 64
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=3.0
+
+[Mon Oct  5 16:19:32 2020]
+Finished job 16.
+14 of 86 steps (16%) done
+
+[Mon Oct  5 16:19:32 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_3.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_3.0.log
+    jobid: 52
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=3.0
+
+[Mon Oct  5 16:19:37 2020]
+Finished job 64.
+15 of 86 steps (17%) done
+
+[Mon Oct  5 16:19:37 2020]
+rule pre:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_1.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_1.0.log
+    jobid: 20
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=1.0
+
+[Mon Oct  5 16:19:38 2020]
+Finished job 26.
+16 of 86 steps (19%) done
+
+[Mon Oct  5 16:19:38 2020]
+rule extractFeatures_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_1.0_DAPI.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_1.0_DAPI.log
+    jobid: 62
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=1.0
+
+[Mon Oct  5 16:19:44 2020]
+Finished job 62.
+17 of 86 steps (20%) done
+
+[Mon Oct  5 16:19:44 2020]
+rule segmentation_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_5.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_5.0_polyT.log
+    jobid: 48
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=5.0
+
+[Mon Oct  5 16:19:50 2020]
+Finished job 40.
+18 of 86 steps (21%) done
+
+[Mon Oct  5 16:19:50 2020]
+rule segmentation_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_1.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_1.0_polyT.log
+    jobid: 44
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=1.0
+
+[Mon Oct  5 16:19:53 2020]
+Finished job 34.
+19 of 86 steps (22%) done
+
+[Mon Oct  5 16:19:53 2020]
+rule segmentation_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_2.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_2.0_DAPI.log
+    jobid: 27
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=2.0
+
+[Mon Oct  5 16:19:54 2020]
+Finished job 25.
+20 of 86 steps (23%) done
+
+[Mon Oct  5 16:19:54 2020]
+rule segmentation_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_2.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_2.0_DAPI.log
+    jobid: 33
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=2.0
+
+[Mon Oct  5 16:19:54 2020]
+Finished job 14.
+21 of 86 steps (24%) done
+
+[Mon Oct  5 16:19:54 2020]
+rule segmentation_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_1.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_1.0_DAPI.log
+    jobid: 32
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=1.0
+
+[Mon Oct  5 16:19:54 2020]
+Finished job 35.
+22 of 86 steps (26%) done
+
+[Mon Oct  5 16:19:54 2020]
+rule segmentation_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_6.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_6.0_DAPI.log
+    jobid: 31
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=6.0
+
+[Mon Oct  5 16:19:57 2020]
+Finished job 37.
+23 of 86 steps (27%) done
+[Mon Oct  5 16:19:57 2020]
+Finished job 23.
+24 of 86 steps (28%) done
+
+[Mon Oct  5 16:19:57 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_4.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_4.0.log
+    jobid: 59
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=4.0
+
+
+[Mon Oct  5 16:19:58 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_1.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_1.0.log
+    jobid: 50
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=1.0
+
+[Mon Oct  5 16:19:58 2020]
+Finished job 22.
+25 of 86 steps (29%) done
+
+[Mon Oct  5 16:19:58 2020]
+rule segmentation_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_5.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_5.0_DAPI.log
+    jobid: 36
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=5.0
+
+[Mon Oct  5 16:20:13 2020]
+Finished job 49.
+26 of 86 steps (30%) done
+
+[Mon Oct  5 16:20:13 2020]
+rule segmentation_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_4.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_4.0_DAPI.log
+    jobid: 29
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=4.0
+
+[Mon Oct  5 16:20:13 2020]
+Finished job 46.
+27 of 86 steps (31%) done
+
+[Mon Oct  5 16:20:13 2020]
+rule segmentation_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_5.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_5.0_DAPI.log
+    jobid: 30
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=5.0
+
+[Mon Oct  5 16:20:14 2020]
+Finished job 47.
+28 of 86 steps (33%) done
+
+[Mon Oct  5 16:20:14 2020]
+rule pre:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_6.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_6.0.log
+    jobid: 19
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=6.0
+
+[Mon Oct  5 16:20:15 2020]
+Finished job 38.
+29 of 86 steps (34%) done
+
+[Mon Oct  5 16:20:15 2020]
+rule pre:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_5.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_5.0.log
+    jobid: 18
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=5.0
+
+[Mon Oct  5 16:20:17 2020]
+Finished job 45.
+30 of 86 steps (35%) done
+
+[Mon Oct  5 16:20:17 2020]
+rule pre:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_4.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_4.0.log
+    jobid: 17
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=4.0
+
+[Mon Oct  5 16:20:18 2020]
+Finished job 43.
+31 of 86 steps (36%) done
+
+[Mon Oct  5 16:20:18 2020]
+rule pre:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_2.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_2.0.log
+    jobid: 15
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=2.0
+
+[Mon Oct  5 16:20:20 2020]
+Finished job 41.
+32 of 86 steps (37%) done
+
+[Mon Oct  5 16:20:20 2020]
+rule pre:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_2.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_2.0.log
+    jobid: 21
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=2.0
+
+[Mon Oct  5 16:20:20 2020]
+Finished job 42.
+33 of 86 steps (38%) done
+
+[Mon Oct  5 16:20:20 2020]
+rule pre:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_5.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_5.0.log
+    jobid: 24
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=5.0
+
+[Mon Oct  5 16:20:23 2020]
+Finished job 39.
+34 of 86 steps (40%) done
+
+[Mon Oct  5 16:20:23 2020]
+rule extractFeatures_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_3.0_polyT.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_3.0_polyT.log
+    jobid: 76
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=3.0
+
+[Mon Oct  5 16:20:26 2020]
+Finished job 20.
+35 of 86 steps (41%) done
+
+[Mon Oct  5 16:20:26 2020]
+rule extractFeatures_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_4.0_polyT.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_4.0_polyT.log
+    jobid: 83
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=4.0
+
+[Mon Oct  5 16:20:30 2020]
+Finished job 32.
+36 of 86 steps (42%) done
+
+[Mon Oct  5 16:20:30 2020]
+rule extractFeatures_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_2.0_polyT.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_2.0_polyT.log
+    jobid: 75
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=2.0
+
+[Mon Oct  5 16:20:37 2020]
+Finished job 33.
+37 of 86 steps (43%) done
+
+[Mon Oct  5 16:20:37 2020]
+rule extractFeatures_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_3.0_polyT.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_3.0_polyT.log
+    jobid: 82
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=3.0
+
+[Mon Oct  5 16:20:37 2020]
+Finished job 76.
+38 of 86 steps (44%) done
+
+[Mon Oct  5 16:20:38 2020]
+rule extractFeatures_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_4.0_polyT.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_4.0_polyT.log
+    jobid: 77
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=4.0
+
+[Mon Oct  5 16:20:39 2020]
+Finished job 83.
+39 of 86 steps (45%) done
+
+[Mon Oct  5 16:20:39 2020]
+rule extractFeatures_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_1.0_polyT.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_1.0_polyT.log
+    jobid: 74
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=1.0
+
+[Mon Oct  5 16:20:40 2020]
+Finished job 75.
+40 of 86 steps (47%) done
+
+[Mon Oct  5 16:20:40 2020]
+rule extractFeatures_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_6.0_polyT.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_6.0_polyT.log
+    jobid: 85
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=6.0
+
+[Mon Oct  5 16:20:46 2020]
+Finished job 82.
+41 of 86 steps (48%) done
+
+[Mon Oct  5 16:20:46 2020]
+rule extractFeatures_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_5.0_polyT.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_5.0_polyT.log
+    jobid: 78
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=5.0
+
+[Mon Oct  5 16:20:47 2020]
+Finished job 74.
+42 of 86 steps (49%) done
+
+[Mon Oct  5 16:20:47 2020]
+rule extractFeatures_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_6.0_polyT.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_6.0_polyT.log
+    jobid: 79
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=6.0
+
+[Mon Oct  5 16:20:50 2020]
+Finished job 77.
+43 of 86 steps (50%) done
+
+[Mon Oct  5 16:20:50 2020]
+rule extractFeatures_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_2.0_polyT.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_2.0_polyT.log
+    jobid: 81
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=2.0
+
+[Mon Oct  5 16:20:50 2020]
+Finished job 85.
+44 of 86 steps (51%) done
+
+[Mon Oct  5 16:20:50 2020]
+rule extractFeatures_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_4.0_DAPI.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_4.0_DAPI.log
+    jobid: 71
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=4.0
+
+[Mon Oct  5 16:20:55 2020]
+Finished job 27.
+45 of 86 steps (52%) done
+
+[Mon Oct  5 16:20:55 2020]
+rule extractFeatures_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_2.0_DAPI.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_2.0_DAPI.log
+    jobid: 63
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=2.0
+
+[Mon Oct  5 16:20:56 2020]
+Finished job 78.
+46 of 86 steps (53%) done
+
+[Mon Oct  5 16:20:56 2020]
+rule extractFeatures_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_3.0_DAPI.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_3.0_DAPI.log
+    jobid: 70
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=3.0
+
+[Mon Oct  5 16:20:57 2020]
+Finished job 48.
+47 of 86 steps (55%) done
+
+[Mon Oct  5 16:20:57 2020]
+rule extractFeatures_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_5.0_polyT.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_5.0_polyT.log
+    jobid: 84
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=5.0
+
+[Mon Oct  5 16:20:58 2020]
+Finished job 79.
+48 of 86 steps (56%) done
+
+[Mon Oct  5 16:20:58 2020]
+rule extractFeatures_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_2.0_DAPI.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_2.0_DAPI.log
+    jobid: 69
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=2.0
+
+[Mon Oct  5 16:20:58 2020]
+Finished job 44.
+49 of 86 steps (57%) done
+
+[Mon Oct  5 16:20:58 2020]
+rule extractFeatures_polyT:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_1.0_polyT.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_1.0_polyT.log
+    jobid: 80
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=1.0
+
+[Mon Oct  5 16:21:01 2020]
+Finished job 81.
+50 of 86 steps (58%) done
+
+[Mon Oct  5 16:21:01 2020]
+rule extractFeatures_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_1.0_DAPI.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_1.0_DAPI.log
+    jobid: 68
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=1.0
+
+[Mon Oct  5 16:21:01 2020]
+Finished job 71.
+51 of 86 steps (59%) done
+
+[Mon Oct  5 16:21:01 2020]
+rule extractFeatures_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_6.0_DAPI.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_6.0_DAPI.log
+    jobid: 73
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=6.0
+
+[Mon Oct  5 16:21:05 2020]
+Finished job 36.
+52 of 86 steps (60%) done
+
+[Mon Oct  5 16:21:05 2020]
+rule extractFeatures_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_5.0_DAPI.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_5.0_DAPI.log
+    jobid: 72
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=5.0
+
+[Mon Oct  5 16:21:05 2020]
+Finished job 31.
+53 of 86 steps (62%) done
+
+[Mon Oct  5 16:21:05 2020]
+rule extractFeatures_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_6.0_DAPI.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_6.0_DAPI.log
+    jobid: 67
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=6.0
+
+[Mon Oct  5 16:21:06 2020]
+Finished job 70.
+54 of 86 steps (63%) done
+
+[Mon Oct  5 16:21:06 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_1.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_1.0.log
+    jobid: 56
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=1.0
+
+[Mon Oct  5 16:21:06 2020]
+Finished job 63.
+55 of 86 steps (64%) done
+
+[Mon Oct  5 16:21:06 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_3.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_3.0.log
+    jobid: 58
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=3.0
+
+[Mon Oct  5 16:21:09 2020]
+Finished job 69.
+56 of 86 steps (65%) done
+
+[Mon Oct  5 16:21:09 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_6.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_6.0.log
+    jobid: 61
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=6.0
+
+[Mon Oct  5 16:21:09 2020]
+Finished job 80.
+57 of 86 steps (66%) done
+[Mon Oct  5 16:21:09 2020]
+Finished job 84.
+58 of 86 steps (67%) done
+[Mon Oct  5 16:21:13 2020]
+Finished job 68.
+59 of 86 steps (69%) done
+[Mon Oct  5 16:21:14 2020]
+Finished job 73.
+60 of 86 steps (70%) done
+[Mon Oct  5 16:21:16 2020]
+Finished job 72.
+61 of 86 steps (71%) done
+[Mon Oct  5 16:21:18 2020]
+Finished job 19.
+62 of 86 steps (72%) done
+
+[Mon Oct  5 16:21:18 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_6.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_6.0.log
+    jobid: 55
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=6.0
+
+[Mon Oct  5 16:21:18 2020]
+Finished job 67.
+63 of 86 steps (73%) done
+[Mon Oct  5 16:21:28 2020]
+Finished job 15.
+64 of 86 steps (74%) done
+
+[Mon Oct  5 16:21:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_2.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_2.0.log
+    jobid: 51
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=2.0
+
+[Mon Oct  5 16:21:29 2020]
+Finished job 18.
+65 of 86 steps (76%) done
+
+[Mon Oct  5 16:21:29 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_5.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_5.0.log
+    jobid: 54
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=5.0
+
+[Mon Oct  5 16:21:29 2020]
+Finished job 21.
+66 of 86 steps (77%) done
+
+[Mon Oct  5 16:21:29 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_2.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_2.0.log
+    jobid: 57
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=2.0
+
+[Mon Oct  5 16:21:31 2020]
+Finished job 24.
+67 of 86 steps (78%) done
+
+[Mon Oct  5 16:21:31 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_5.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_5.0.log
+    jobid: 60
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=5.0
+
+[Mon Oct  5 16:21:31 2020]
+Finished job 29.
+68 of 86 steps (79%) done
+
+[Mon Oct  5 16:21:31 2020]
+rule extractFeatures_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_4.0_DAPI.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_4.0_DAPI.log
+    jobid: 65
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=4.0
+
+[Mon Oct  5 16:21:33 2020]
+Finished job 17.
+69 of 86 steps (80%) done
+
+[Mon Oct  5 16:21:33 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_4.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_4.0.log
+    jobid: 53
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=4.0
+
+[Mon Oct  5 16:21:34 2020]
+Finished job 30.
+70 of 86 steps (81%) done
+
+[Mon Oct  5 16:21:34 2020]
+rule extractFeatures_DAPI:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_5.0_DAPI.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_5.0_DAPI.log
+    jobid: 66
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=5.0
+
+[Mon Oct  5 16:21:47 2020]
+Finished job 65.
+71 of 86 steps (83%) done
+[Mon Oct  5 16:21:49 2020]
+Finished job 66.
+72 of 86 steps (84%) done
+[Mon Oct  5 16:25:29 2020]
+Finished job 52.
+73 of 86 steps (85%) done
+[Mon Oct  5 16:26:01 2020]
+Finished job 50.
+74 of 86 steps (86%) done
+[Mon Oct  5 16:26:44 2020]
+Finished job 59.
+75 of 86 steps (87%) done
+[Mon Oct  5 16:28:15 2020]
+Finished job 56.
+76 of 86 steps (88%) done
+[Mon Oct  5 16:28:23 2020]
+Finished job 55.
+77 of 86 steps (90%) done
+[Mon Oct  5 16:28:29 2020]
+Finished job 61.
+78 of 86 steps (91%) done
+[Mon Oct  5 16:28:34 2020]
+Finished job 58.
+79 of 86 steps (92%) done
+[Mon Oct  5 16:28:35 2020]
+Finished job 51.
+80 of 86 steps (93%) done
+[Mon Oct  5 16:28:37 2020]
+Finished job 57.
+81 of 86 steps (94%) done
+[Mon Oct  5 16:28:41 2020]
+Finished job 60.
+82 of 86 steps (95%) done
+[Mon Oct  5 16:28:45 2020]
+Finished job 54.
+83 of 86 steps (97%) done
+[Mon Oct  5 16:28:50 2020]
+Finished job 53.
+84 of 86 steps (98%) done
+
+[Mon Oct  5 16:28:50 2020]
+rule trainPSM:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_1.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_2.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_3.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_4.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_5.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_6.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_1.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_2.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_3.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_4.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_5.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_6.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/pixel_score_machine.log
+    jobid: 86
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data
+
+[Mon Oct  5 16:29:35 2020]
+Finished job 86.
+85 of 86 steps (99%) done
+
+[Mon Oct  5 16:29:35 2020]
+localrule all:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_2.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_3.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_4.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_5.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_6.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_1.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_2.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_3.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_4.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_5.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_6.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_1.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_2.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_3.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_4.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_5.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_6.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_1.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_2.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_3.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_4.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_5.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_1_zpos_6.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_1.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_2.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_3.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_4.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_5.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_6.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_1.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_2.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_3.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_4.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_5.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_6.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_1.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_2.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_3.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_4.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_5.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_6.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_1.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_2.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_3.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_4.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_5.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_1_zpos_6.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_1.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_2.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_3.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_4.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_5.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_6.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_1.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_2.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_3.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_4.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_5.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_6.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_1.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_2.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_3.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_4.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_5.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_6.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_1.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_2.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_3.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_4.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_5.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_6.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_1.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_2.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_3.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_4.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_5.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_6.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_1.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_2.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_3.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_4.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_5.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_1_zpos_6.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/pixel_score_machine.log
+    jobid: 0
+
+[Mon Oct  5 16:29:35 2020]
+Finished job 0.
+86 of 86 steps (100%) done
+Complete log: /home/rfang/github/merfishdecoder/snakemake/.snakemake/log/2020-10-05T161546.486862.snakemake.log

@@ -1,0 +1,33 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	exportGeneFeatureMatrix
+	2
+
+[Mon Oct  5 23:04:01 2020]
+rule exportGeneFeatureMatrix:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/assign_barcodes_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/filter_features_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/assign_barcodes_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/filter_features_DAPI.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/export_gene_polyT_matrix.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/export_gene_DAPI_matrix.log
+    jobid: 190
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data
+
+[Mon Oct  5 23:04:02 2020]
+Error in rule exportGeneFeatureMatrix:
+    jobid: 190
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/export_gene_polyT_matrix.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/export_gene_DAPI_matrix.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder export-gene-feature-matrix 			--data-set-name=MERFISH_test/data 			--barcodes-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filteredBarcodes/barcodes_DAPI.h5 			--features-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filteredFeatures/DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/exportedGeneFeatureMatices/DAPI 			--max-cores=10 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/export_gene_polyT_matrix.log
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder export-gene-feature-matrix 			--data-set-name=MERFISH_test/data 			--barcodes-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filteredBarcodes/barcodes_polyT.h5 			--features-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filteredFeatures/polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/exportedGeneFeatureMatices/polyT 			--max-cores=10 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/export_gene_DAPI_matrix.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job exportGeneFeatureMatrix since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/export_gene_polyT_matrix.log
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/rfang/github/merfishdecoder/snakemake/.snakemake/log/2020-10-05T230400.802639.snakemake.log

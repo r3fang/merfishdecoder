@@ -1,0 +1,15 @@
+Building DAG of jobs...
+MissingInputException in line 3 of /home/rfang/github/merfishdecoder/snakemake/Snakefile:
+Missing input files for rule all:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedBarcodes/fov_0_zpos_5.0.log
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedBarcodes/fov_0_zpos_4.0.log
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedBarcodes/fov_1_zpos_1.0.log
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedBarcodes/fov_0_zpos_6.0.log
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedBarcodes/fov_1_zpos_3.0.log
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedBarcodes/fov_1_zpos_4.0.log
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedBarcodes/fov_1_zpos_5.0.log
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedBarcodes/fov_1_zpos_2.0.log
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedBarcodes/fov_1_zpos_6.0.log
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedBarcodes/fov_0_zpos_3.0.log
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedBarcodes/fov_0_zpos_2.0.log
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedBarcodes/fov_0_zpos_1.0.log

@@ -12,9 +12,7 @@ def run_job(
     dataSetName: str = None,
     outputName: str = None,
     segmentedFeaturesName: list = None,
-    bufferSize: int = 15,
-    borderSize: int = 50,
-    minZplane: int = 3):
+    bufferSize: int = 15):
     
     """
     Extract features from decoded images for each fov.
@@ -30,10 +28,8 @@ def run_job(
     """
     
     # dataSetName = "MERFISH_test/data"
-    # segmentedFeaturesName = "segmentedFeatures"
-    # outputName = "exportedFeatures/nucleus"
-    # borderSize = 50
-    # minZplane = 3
+    # segmentedFeaturesName = "extractedFeatures"
+    # outputName = "exportedFeatures/DAPI"
     
     # check points
     utilities.print_checkpoint("Export Features")
@@ -74,17 +70,6 @@ def run_job(
             for fov in np.unique(features.fov) ],
         ignore_index = True)
 
-    # filter feautres
-    features = pd.concat([ 
-        segmentation.filter_features_per_fov(
-            dataSet = dataSet,
-            features = features,
-            fov = fov,
-            minZplane = minZplane,
-            borderSize = borderSize) \
-            for fov in np.unique(features.fov) ],
-        ignore_index = True)
-    
     if not features.empty:
         features[['fov', 'x', 'y', 'z', 'global_x', 
             'global_y', 'global_z', 'name', 

@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 255 of /home/rfang/github/merfishdecoder/snakemake/Snakefile:
+Missing input files for rule extractBarcodes:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/train_psm.log

@@ -1,0 +1,3 @@
+KeyError in line 221 of /home/rfang/github/merfishdecoder/snakemake/Snakefile.test:
+'dataSetName'
+  File "/home/rfang/github/merfishdecoder/snakemake/Snakefile.test", line 221, in <module>

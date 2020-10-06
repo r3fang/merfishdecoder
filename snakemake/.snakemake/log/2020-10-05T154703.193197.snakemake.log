@@ -1,0 +1,3 @@
+KeyError in line 117 of /home/rfang/github/merfishdecoder/snakemake/Snakefile.test:
+'ployT'
+  File "/home/rfang/github/merfishdecoder/snakemake/Snakefile.test", line 117, in <module>

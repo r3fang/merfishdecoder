@@ -1,0 +1,3 @@
+KeyError in line 391 of /home/rfang/github/merfishdecoder/snakemake/Snakefile:
+'borderSize'
+  File "/home/rfang/github/merfishdecoder/snakemake/Snakefile", line 391, in <module>

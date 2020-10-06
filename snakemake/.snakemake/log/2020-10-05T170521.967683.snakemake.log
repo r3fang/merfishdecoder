@@ -1,0 +1,271 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 20
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	createAnalysis
+	12	decoding
+	1	exportBarcodes
+	12	extractBarcodes
+	12	extractFeatures_DAPI
+	12	extractFeatures_polyT
+	12	preprocessing
+	12	registration
+	12	segmentation_DAPI
+	12	segmentation_polyT
+	1	trainPSM
+	100
+
+[Mon Oct  5 17:05:22 2020]
+rule createAnalysis:
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/log/createAnalysis.log
+    jobid: 1
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data
+
+[Mon Oct  5 17:05:23 2020]
+Finished job 1.
+1 of 100 steps (1%) done
+
+[Mon Oct  5 17:05:23 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/log/createAnalysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log
+    jobid: 2
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=1.0
+
+
+[Mon Oct  5 17:05:23 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/log/createAnalysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_2.0.log
+    jobid: 3
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=2.0
+
+
+[Mon Oct  5 17:05:23 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/log/createAnalysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_4.0.log
+    jobid: 5
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=4.0
+
+
+[Mon Oct  5 17:05:23 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/log/createAnalysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_6.0.log
+    jobid: 7
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=6.0
+
+
+[Mon Oct  5 17:05:23 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/log/createAnalysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_2.0.log
+    jobid: 9
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=2.0
+
+
+[Mon Oct  5 17:05:23 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/log/createAnalysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_4.0.log
+    jobid: 11
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=4.0
+
+
+[Mon Oct  5 17:05:23 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/log/createAnalysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_6.0.log
+    jobid: 13
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=6.0
+
+
+[Mon Oct  5 17:05:23 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/log/createAnalysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_3.0.log
+    jobid: 4
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=3.0
+
+
+[Mon Oct  5 17:05:23 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/log/createAnalysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_5.0.log
+    jobid: 6
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=5.0
+
+
+[Mon Oct  5 17:05:23 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/log/createAnalysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_1.0.log
+    jobid: 8
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=1.0
+
+
+[Mon Oct  5 17:05:23 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/log/createAnalysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_3.0.log
+    jobid: 10
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=3.0
+
+
+[Mon Oct  5 17:05:23 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/log/createAnalysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_5.0.log
+    jobid: 12
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=5.0
+
+Terminating processes on user request, this might take some time.
+[Mon Oct  5 17:05:48 2020]
+[Mon Oct  5 17:05:48 2020]
+Error in rule registration:
+[Mon Oct  5 17:05:48 2020]
+Error in rule registration:
+    jobid: 4
+Error in rule registration:
+    jobid: 6
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_3.0.log
+    jobid: 10
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_5.0.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=0 			--zpos=3.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_3.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_3.0.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_3.0.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=0 			--zpos=5.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_5.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_5.0.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=1 			--zpos=3.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_3.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_3.0.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+
+Removing output files of failed job registration since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_3.0.log
+Removing output files of failed job registration since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_5.0.log
+Removing output files of failed job registration since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_3.0.log
+[Mon Oct  5 17:05:48 2020]
+Error in rule registration:
+    jobid: 2
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=0 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job registration since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log
+[Mon Oct  5 17:05:48 2020]
+Error in rule registration:
+    jobid: 8
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_1.0.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=1 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_1.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_1.0.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job registration since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_1.0.log
+[Mon Oct  5 17:05:48 2020]
+Error in rule registration:
+    jobid: 7
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_6.0.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=0 			--zpos=6.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_6.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_6.0.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job registration since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_6.0.log
+[Mon Oct  5 17:05:48 2020]
+Error in rule registration:
+    jobid: 12
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_5.0.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=1 			--zpos=5.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_5.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_5.0.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job registration since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_5.0.log
+[Mon Oct  5 17:05:48 2020]
+Error in rule registration:
+    jobid: 11
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_4.0.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=1 			--zpos=4.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_4.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_4.0.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Mon Oct  5 17:05:48 2020]
+Error in rule registration:
+Removing output files of failed job registration since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_4.0.log
+    jobid: 13
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_6.0.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=1 			--zpos=6.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_6.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_6.0.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job registration since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_6.0.log
+[Mon Oct  5 17:05:48 2020]
+Error in rule registration:
+    jobid: 3
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_2.0.log
+[Mon Oct  5 17:05:48 2020]
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=0 			--zpos=2.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_2.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_2.0.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+Error in rule registration:
+
+    jobid: 9
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_2.0.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=1 			--zpos=2.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_2.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_2.0.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Mon Oct  5 17:05:48 2020]
+Error in rule registration:
+    jobid: 5
+Removing output files of failed job registration since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_2.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_4.0.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=0 			--zpos=4.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_4.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_4.0.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job registration since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_2.0.log
+Removing output files of failed job registration since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_4.0.log
+Complete log: /home/rfang/github/merfishdecoder/snakemake/.snakemake/log/2020-10-05T170521.967683.snakemake.log

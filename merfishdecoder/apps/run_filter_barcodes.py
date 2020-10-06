@@ -16,7 +16,7 @@ def run_job(dataSetName: str = None,
             misIdentificationRate: float = 0.05,
             keepBlankBarcodes: bool = True,
             minAreaSize: int = 1):
-    
+
     """
     Export barcodes.
 
@@ -64,7 +64,7 @@ def run_job(dataSetName: str = None,
             codebook = dataSet.get_codebook(),
             cutoff = misIdentificationRate,
             bins = 200);
-            
+
     # filter barcodes
     barcodes = \
         barcoder.filter_barcodes(
@@ -73,7 +73,7 @@ def run_job(dataSetName: str = None,
             likelihoodThreshold = likelihoodThreshold,
             keepBlankBarcodes = keepBlankBarcodes,
             minAreaSize = minAreaSize);
-    
+
     # save barcodes per fov
     for fov in np.unique(barcodes.fov):
         barcodes[barcodes.fov == fov].to_hdf(

@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	trainPSM
+	2
+
+[Mon Oct  5 16:02:09 2020]
+rule trainPSM:
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/pixel_score_machine.log
+    jobid: 16
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data
+
+[Mon Oct  5 16:02:12 2020]
+Finished job 16.
+1 of 2 steps (50%) done
+
+[Mon Oct  5 16:02:12 2020]
+localrule all:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_2.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_1.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_2.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_1.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_2.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_1.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_2.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_1.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_2.0.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_1.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_2.0_DAPI.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_1.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_0_zpos_2.0_polyT.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/pixel_score_machine.log
+    jobid: 0
+
+[Mon Oct  5 16:02:12 2020]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /home/rfang/github/merfishdecoder/snakemake/.snakemake/log/2020-10-05T160209.295953.snakemake.log

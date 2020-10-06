@@ -7,7 +7,9 @@ import pandas as pd
 import geopandas as geo
 import numpy as np
 import multiprocessing as mp
+
 from merfishdecoder.core import dataset
+from merfishdecoder.util import utilities
 
 def read_barcodes_per_fov(
     fname: str = None,
@@ -41,12 +43,15 @@ def export_gene_feature_vector_per_fov(
         return_counts=True)) \
         for fn in fnList ])
 
-def main():
-    dataSetName = "20200303_hMTG_V11_4000gene_best_sample/data/"
-    barcodesName = "assignedBarcodes/barcodes_DAPI_filtered.h5"
-    featuresName = "exportedFeatures/polyT"
-    outputName = "exportedGeneFeatureMatrices/DAPI"
-    maxCores = 10
+def run_job(dataSetName: str = None,
+            barcodesName: str = None,
+            featuresName: str = None,
+            outputName: str = None,
+            maxCores: int = 1):
+    
+    utilities.print_checkpoint("Export gene feature matrix")
+    utilities.print_checkpoint("Start")
+    
     
     dataSet = dataset.MERFISHDataSet(
             dataSetName)
@@ -76,8 +81,6 @@ def main():
         columns = ["fov", "x", "y", "global_x", \
             "global_y", "name", "area", "avg_area"])
     
-    print("number of features = %d" % features.shape[0])
-
     # assign barcodes to cell
     with mp.Pool(processes=maxCores) as pool:
         vectorList = pool.starmap(
@@ -97,8 +100,7 @@ def main():
         (idx, count) = vectorList[key]
         if key in np.array(features.name):
             mat[list(features.name).index(key), idx.astype(int)] += count
-    
-    # write down the nucleus-by-gene matrix
+
     scipy.io.mmwrite(
         os.path.join(outputName, "matrix.mtx"),
         sparse.csr_matrix(mat.T.astype(np.float32)))
@@ -108,7 +110,9 @@ def main():
     dataSet.get_codebook().get_data()[["id", "name"]].to_csv(
         os.path.join(outputName, "genes.tsv"),
         index = False, header = False, sep='\t')
-
+    
+    utilities.print_checkpoint("Done")
+    
 if __name__ == "__main__":
     main()
 

@@ -1,0 +1,3 @@
+KeyError in line 251 of /home/rfang/github/merfishdecoder/snakemake/Snakefile:
+'barcodesPerCore'
+  File "/home/rfang/github/merfishdecoder/snakemake/Snakefile", line 251, in <module>

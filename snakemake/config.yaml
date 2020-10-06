@@ -1,0 +1,71 @@
+global:
+  dataHome: "gc://r3fang/MERFISH_raw_data"
+  analysisHome: "/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis"
+  analysisPath : "/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data"
+  fovs : 5
+  zposes : [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+  dataSetName: "MERFISH_test/data"
+  codebookName: "hMTGE1_V11_codebook_4000.csv"
+  dataOrganizationName: "hMTGdataorganization_48bit_6z.v11.csv"
+  microscopeParameterName: "MERFISH_MZ.json"
+  microscopeChromaticAberrationName: "MERFIFH_MZ_ca_profile_2020_10_01_.pkl"
+  positionName: "MERFISH_test_positions.csv"
+
+registration:
+  registerDrift: True
+  refFrameIndex: 0
+  highPassFilterSigma: 3
+  registerColor: True
+  saveFiducials: False
+
+pre:
+  highPassFilterSigma: 3
+
+segmentation:
+  DAPI:
+    diameter: 150
+    modelType: "nuclei"
+    gpu: False
+  polyT:
+    diameter: 200
+    modelType: "cyto"
+    gpu: False
+
+decoding:
+  maxCores: 1
+  borderSize: 80
+  magnitudeThreshold: 0
+  distanceThreshold: 0.6
+
+trainPSM:
+  outputName: "pixel_score_machine.pkl"
+  zposNum: 10
+
+extractBarcodes:
+  maxCores: 2
+  barcodesPerCore: 10
+
+exportFeatures:
+  bufferSize: 20
+
+filterFeatures:
+  borderSize: 50
+  minZplane: 3
+
+filterBarcodes:
+  keepBlankBarcodes: True
+  misIdentificationRate: 0.05
+  minAreaSize: 1
+  fovNum: 20
+
+assignBarcodes:
+  DAPI:
+    maxCores: 10
+    bufferSize: -0.5
+  polyT:
+    maxCores: 10
+    bufferSize: 1
+
+exportGeneFeatureMatrix:
+  maxCores: 10
+

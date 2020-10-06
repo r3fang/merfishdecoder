@@ -1,0 +1,12 @@
+Building DAG of jobs...
+AmbiguousRuleException:
+Rules registration and trainPSM are ambiguous for the file /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/pixel_score_machine.log.
+Consider starting rule output with a unique prefix, constrain your wildcards, or use the ruleorder directive.
+Wildcards:
+	registration: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data,fov=0,zpos=1.0.log/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/pixel_score_machine
+	trainPSM: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data
+Expected input files:
+	registration: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv
+	trainPSM: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_1.0.log /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_2.0.log /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_3.0.log /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_4.0.log /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_5.0.log /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_6.0.log /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_1.0.log /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_2.0.log /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_3.0.log /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_4.0.log /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_5.0.log /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_1_zpos_6.0.logExpected output files:
+	registration: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/pixel_score_machine.log
+	trainPSM: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_1.0.log/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/pixel_score_machine.log

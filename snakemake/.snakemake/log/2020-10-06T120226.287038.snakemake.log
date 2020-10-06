@@ -1,0 +1,841 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 20
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	assignBarcodes_DAPI
+	1	assignBarcodes_polyT
+	300	decoding
+	1	exportBarcodes
+	1	exportFeatures
+	1	exportGeneFeatureMatrix
+	30	extractBarcodes
+	1	filterBarcodes
+	1	filterBarcodesFeature
+	1	filterFeatures
+	1	trainPSM
+	340
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_decoding.log
+    jobid: 73
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=5, zpos=3.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_decoding.log
+    jobid: 19
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=2, zpos=6.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_decoding.log
+    jobid: 75
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=5, zpos=5.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_decoding.log
+    jobid: 103
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=10, zpos=3.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_decoding.log
+    jobid: 335
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=49, zpos=1.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_decoding.log
+    jobid: 126
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=14, zpos=2.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_decoding.log
+    jobid: 182
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=23, zpos=4.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_decoding.log
+    jobid: 196
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=25, zpos=6.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_decoding.log
+    jobid: 224
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=30, zpos=4.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_decoding.log
+    jobid: 240
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=33, zpos=2.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_decoding.log
+    jobid: 252
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=35, zpos=2.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_decoding.log
+    jobid: 257
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=36, zpos=1.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_decoding.log
+    jobid: 263
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=37, zpos=1.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_decoding.log
+    jobid: 280
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=39, zpos=6.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_decoding.log
+    jobid: 294
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=42, zpos=2.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_decoding.log
+    jobid: 325
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=47, zpos=3.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_decoding.log
+    jobid: 315
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=45, zpos=5.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_decoding.log
+    jobid: 127
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=14, zpos=3.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_decoding.log
+    jobid: 183
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=23, zpos=5.0
+
+
+[Tue Oct  6 12:02:28 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_decoding.log
+    jobid: 197
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=26, zpos=1.0
+
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 73
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=5 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_5_zpos_3.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=5 			--zpos=3.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_5_zpos_3.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_5_zpos_3.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=5 			--zpos=3.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_5_zpos_3.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_5_zpos_3.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_5_zpos_3.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=5 			--zpos=3.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_5_zpos_3.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_5_zpos_3.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=5 			--zpos=3.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_5_zpos_3.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_5_zpos_3.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_5_zpos_3.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=5 --zpos=3.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_5_zpos_3.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_5_zpos_3.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_5_zpos_3.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=5 			--zpos=3.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_5_zpos_3.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_5_zpos_3.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_5_zpos_3.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_3.0_registration.log
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 224
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=30 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_30_zpos_4.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=30 			--zpos=4.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_30_zpos_4.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_30_zpos_4.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=30 			--zpos=4.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_30_zpos_4.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_30_zpos_4.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_30_zpos_4.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=30 			--zpos=4.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_30_zpos_4.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_30_zpos_4.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=30 			--zpos=4.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_30_zpos_4.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_30_zpos_4.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_30_zpos_4.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=30 --zpos=4.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_30_zpos_4.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_30_zpos_4.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_30_zpos_4.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=30 			--zpos=4.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_30_zpos_4.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_30_zpos_4.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_30_zpos_4.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+[Tue Oct  6 12:02:30 2020]
+
+Error in rule decoding:
+    jobid: 335
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=49 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_49_zpos_1.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=49 			--zpos=1.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_49_zpos_1.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_49_zpos_1.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=49 			--zpos=1.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_49_zpos_1.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_49_zpos_1.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_49_zpos_1.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=49 			--zpos=1.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_49_zpos_1.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_49_zpos_1.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=49 			--zpos=1.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_49_zpos_1.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_49_zpos_1.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_49_zpos_1.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=49 --zpos=1.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_49_zpos_1.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_49_zpos_1.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_49_zpos_1.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=49 			--zpos=1.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_49_zpos_1.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_49_zpos_1.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_49_zpos_1.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 182
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=23 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_23_zpos_4.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=23 			--zpos=4.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_23_zpos_4.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_23_zpos_4.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=23 			--zpos=4.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_23_zpos_4.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_23_zpos_4.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_23_zpos_4.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=23 			--zpos=4.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_23_zpos_4.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_23_zpos_4.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=23 			--zpos=4.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_23_zpos_4.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_23_zpos_4.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_23_zpos_4.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=23 --zpos=4.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_23_zpos_4.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_23_zpos_4.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_23_zpos_4.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=23 			--zpos=4.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_23_zpos_4.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_23_zpos_4.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_23_zpos_4.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_30_zpos_4.0_registration.log
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_49_zpos_1.0_registration.log
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_4.0_registration.log
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 263
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=37 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_37_zpos_1.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=37 			--zpos=1.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_37_zpos_1.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_37_zpos_1.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=37 			--zpos=1.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_37_zpos_1.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_37_zpos_1.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_37_zpos_1.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=37 			--zpos=1.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_37_zpos_1.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_37_zpos_1.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=37 			--zpos=1.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_37_zpos_1.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_37_zpos_1.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_37_zpos_1.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=37 --zpos=1.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_37_zpos_1.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_37_zpos_1.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_37_zpos_1.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=37 			--zpos=1.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_37_zpos_1.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_37_zpos_1.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_37_zpos_1.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 252
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=35 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_35_zpos_2.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=35 			--zpos=2.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_35_zpos_2.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_35_zpos_2.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=35 			--zpos=2.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_35_zpos_2.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_35_zpos_2.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_35_zpos_2.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=35 			--zpos=2.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_35_zpos_2.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_35_zpos_2.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=35 			--zpos=2.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_35_zpos_2.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_35_zpos_2.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_35_zpos_2.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=35 --zpos=2.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_35_zpos_2.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_35_zpos_2.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_35_zpos_2.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=35 			--zpos=2.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_35_zpos_2.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_35_zpos_2.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_35_zpos_2.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_37_zpos_1.0_registration.log
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_35_zpos_2.0_registration.log
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 280
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_decoding.log
+[Tue Oct  6 12:02:30 2020]
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=39 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_39_zpos_6.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=39 			--zpos=6.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_39_zpos_6.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_39_zpos_6.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=39 			--zpos=6.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_39_zpos_6.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_39_zpos_6.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_39_zpos_6.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=39 			--zpos=6.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_39_zpos_6.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_39_zpos_6.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=39 			--zpos=6.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_39_zpos_6.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_39_zpos_6.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_39_zpos_6.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=39 --zpos=6.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_39_zpos_6.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_39_zpos_6.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_39_zpos_6.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=39 			--zpos=6.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_39_zpos_6.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_39_zpos_6.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_39_zpos_6.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+Error in rule decoding:
+
+    jobid: 294
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=42 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_42_zpos_2.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=42 			--zpos=2.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_42_zpos_2.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_42_zpos_2.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=42 			--zpos=2.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_42_zpos_2.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_42_zpos_2.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_42_zpos_2.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=42 			--zpos=2.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_42_zpos_2.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_42_zpos_2.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=42 			--zpos=2.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_42_zpos_2.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_42_zpos_2.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_42_zpos_2.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=42 --zpos=2.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_42_zpos_2.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_42_zpos_2.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_42_zpos_2.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=42 			--zpos=2.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_42_zpos_2.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_42_zpos_2.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_42_zpos_2.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_39_zpos_6.0_registration.log
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_42_zpos_2.0_registration.log
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 240
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=33 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_33_zpos_2.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=33 			--zpos=2.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_33_zpos_2.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_33_zpos_2.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=33 			--zpos=2.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_33_zpos_2.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_33_zpos_2.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_33_zpos_2.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=33 			--zpos=2.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_33_zpos_2.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_33_zpos_2.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=33 			--zpos=2.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_33_zpos_2.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_33_zpos_2.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_33_zpos_2.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=33 --zpos=2.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_33_zpos_2.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_33_zpos_2.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_33_zpos_2.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=33 			--zpos=2.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_33_zpos_2.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_33_zpos_2.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_33_zpos_2.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_33_zpos_2.0_registration.log
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 196
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=25 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_25_zpos_6.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=25 			--zpos=6.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_25_zpos_6.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_25_zpos_6.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=25 			--zpos=6.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_25_zpos_6.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_25_zpos_6.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_25_zpos_6.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=25 			--zpos=6.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_25_zpos_6.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_25_zpos_6.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=25 			--zpos=6.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_25_zpos_6.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_25_zpos_6.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_25_zpos_6.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=25 --zpos=6.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_25_zpos_6.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_25_zpos_6.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_25_zpos_6.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=25 			--zpos=6.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_25_zpos_6.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_25_zpos_6.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_25_zpos_6.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_25_zpos_6.0_registration.log
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 75
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=5 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_5_zpos_5.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=5 			--zpos=5.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_5_zpos_5.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_5_zpos_5.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=5 			--zpos=5.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_5_zpos_5.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_5_zpos_5.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_5_zpos_5.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=5 			--zpos=5.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_5_zpos_5.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_5_zpos_5.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=5 			--zpos=5.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_5_zpos_5.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_5_zpos_5.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_5_zpos_5.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=5 --zpos=5.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_5_zpos_5.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_5_zpos_5.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_5_zpos_5.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=5 			--zpos=5.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_5_zpos_5.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_5_zpos_5.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_5_zpos_5.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_5_zpos_5.0_registration.log
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 315
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=45 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_45_zpos_5.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=45 			--zpos=5.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_45_zpos_5.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_45_zpos_5.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=45 			--zpos=5.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_45_zpos_5.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_45_zpos_5.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_45_zpos_5.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=45 			--zpos=5.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_45_zpos_5.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_45_zpos_5.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=45 			--zpos=5.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_45_zpos_5.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_45_zpos_5.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_45_zpos_5.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=45 --zpos=5.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_45_zpos_5.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_45_zpos_5.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_45_zpos_5.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=45 			--zpos=5.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_45_zpos_5.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_45_zpos_5.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_45_zpos_5.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_45_zpos_5.0_registration.log
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 126
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=14 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_14_zpos_2.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=14 			--zpos=2.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_14_zpos_2.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_14_zpos_2.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=14 			--zpos=2.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_14_zpos_2.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_14_zpos_2.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_14_zpos_2.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=14 			--zpos=2.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_14_zpos_2.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_14_zpos_2.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=14 			--zpos=2.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_14_zpos_2.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_14_zpos_2.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_14_zpos_2.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=14 --zpos=2.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_14_zpos_2.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_14_zpos_2.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_14_zpos_2.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=14 			--zpos=2.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_14_zpos_2.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_14_zpos_2.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_14_zpos_2.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_2.0_registration.log
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 103
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=10 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_10_zpos_3.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=10 			--zpos=3.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_10_zpos_3.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_10_zpos_3.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=10 			--zpos=3.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_10_zpos_3.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_10_zpos_3.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_10_zpos_3.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=10 			--zpos=3.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_10_zpos_3.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_10_zpos_3.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=10 			--zpos=3.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_10_zpos_3.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_10_zpos_3.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_10_zpos_3.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=10 --zpos=3.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_10_zpos_3.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_10_zpos_3.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_10_zpos_3.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=10 			--zpos=3.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_10_zpos_3.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_10_zpos_3.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_10_zpos_3.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_10_zpos_3.0_registration.log
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 197
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=26 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_26_zpos_1.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=26 			--zpos=1.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_26_zpos_1.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_26_zpos_1.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=26 			--zpos=1.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_26_zpos_1.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_26_zpos_1.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_26_zpos_1.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=26 			--zpos=1.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_26_zpos_1.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_26_zpos_1.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=26 			--zpos=1.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_26_zpos_1.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_26_zpos_1.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_26_zpos_1.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=26 --zpos=1.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_26_zpos_1.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_26_zpos_1.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_26_zpos_1.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=26 			--zpos=1.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_26_zpos_1.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_26_zpos_1.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_26_zpos_1.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_26_zpos_1.0_registration.log
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 325
+[Tue Oct  6 12:02:30 2020]
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_decoding.log
+Error in rule decoding:
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=47 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_47_zpos_3.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=47 			--zpos=3.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_47_zpos_3.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_47_zpos_3.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=47 			--zpos=3.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_47_zpos_3.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_47_zpos_3.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_47_zpos_3.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=47 			--zpos=3.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_47_zpos_3.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_47_zpos_3.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=47 			--zpos=3.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_47_zpos_3.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_47_zpos_3.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_47_zpos_3.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=47 --zpos=3.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_47_zpos_3.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_47_zpos_3.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_47_zpos_3.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=47 			--zpos=3.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_47_zpos_3.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_47_zpos_3.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_47_zpos_3.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+    jobid: 183
+
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=23 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_23_zpos_5.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=23 			--zpos=5.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_23_zpos_5.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_23_zpos_5.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=23 			--zpos=5.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_23_zpos_5.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_23_zpos_5.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_23_zpos_5.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=23 			--zpos=5.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_23_zpos_5.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_23_zpos_5.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=23 			--zpos=5.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_23_zpos_5.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_23_zpos_5.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_23_zpos_5.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=23 --zpos=5.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_23_zpos_5.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_23_zpos_5.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_23_zpos_5.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=23 			--zpos=5.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_23_zpos_5.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_23_zpos_5.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_23_zpos_5.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Tue Oct  6 12:02:30 2020]
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_47_zpos_3.0_registration.log
+Error in rule decoding:
+    jobid: 257
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=36 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_36_zpos_1.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=36 			--zpos=1.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_36_zpos_1.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_36_zpos_1.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=36 			--zpos=1.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_36_zpos_1.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_36_zpos_1.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_36_zpos_1.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=36 			--zpos=1.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_36_zpos_1.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_36_zpos_1.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=36 			--zpos=1.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_36_zpos_1.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_36_zpos_1.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_36_zpos_1.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=36 --zpos=1.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_36_zpos_1.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_36_zpos_1.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_36_zpos_1.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=36 			--zpos=1.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_36_zpos_1.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_36_zpos_1.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_36_zpos_1.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+[Tue Oct  6 12:02:30 2020]
+Error in rule decoding:
+    jobid: 127
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=14 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_14_zpos_3.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=14 			--zpos=3.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_14_zpos_3.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_14_zpos_3.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=14 			--zpos=3.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_14_zpos_3.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_14_zpos_3.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_14_zpos_3.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=14 			--zpos=3.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_14_zpos_3.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_14_zpos_3.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=14 			--zpos=3.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_14_zpos_3.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_14_zpos_3.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_14_zpos_3.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=14 --zpos=3.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_14_zpos_3.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_14_zpos_3.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_14_zpos_3.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=14 			--zpos=3.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_14_zpos_3.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_14_zpos_3.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_14_zpos_3.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_23_zpos_5.0_registration.log
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_36_zpos_1.0_registration.log
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_14_zpos_3.0_registration.log
+Terminating processes on user request, this might take some time.
+[Tue Oct  6 12:02:35 2020]
+Error in rule decoding:
+    jobid: 19
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_registration.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_processing.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_DAPI_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_polyT_segmentation.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_polyT_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_DAPI_extract_features.log, /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder register-images 			--data-set-name=MERFISH_test/data 			--fov=2 			--zpos=1.0  			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_2_zpos_6.0.tif 			--register-drift=True 			--ref-frame-index=0 			--high-pass-filter-sigma=3 			--register-color=True 			--save-fiducials=False 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_registration.log
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=2 			--zpos=6.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_2_zpos_6.0.tif 			--feature-name=DAPI 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_2_zpos_6.0_DAPI.npz 			--diameter=150 			--model-type=nuclei 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_DAPI_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=2 			--zpos=6.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_2_zpos_6.0_DAPI.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_2_zpos_6.0_DAPI 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_DAPI_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_2_zpos_6.0_DAPI.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder segmentation 			--data-set-name=MERFISH_test/data 			--fov=2 			--zpos=6.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_2_zpos_6.0.tif 			--feature-name=polyT 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_2_zpos_6.0_ployT.npz 			--diameter=200 			--model-type=cyto 			--gpu=False  			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_polyT_segmentation.log
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder extract-features 			--data-set-name=MERFISH_test/data 			--fov=2 			--zpos=6.0 			--segmented-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_2_zpos_6.0_polyT.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/extractedFeatures/fov_2_zpos_6.0_polyT 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_polyT_extract_features.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_2_zpos_6.0_polyT.npz
+		
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder process-images 			--data-set-name=MERFISH_test/data 			--fov=2 --zpos=6.0 			--warped-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_2_zpos_6.0.tif 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_2_zpos_6.0.npz 			--high-pass-filter-sigma=3 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_processing.log
+		
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_2_zpos_6.0.tif
+
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=2 			--zpos=6.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_2_zpos_6.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_2_zpos_6.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_decoding.log
+
+		rm /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_2_zpos_6.0.npz
+
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_2_zpos_6.0_registration.log
+Cancelling snakemake on user request.

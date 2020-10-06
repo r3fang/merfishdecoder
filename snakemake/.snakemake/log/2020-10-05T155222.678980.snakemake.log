@@ -1,0 +1,48 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	2	decoding
+	3
+
+[Mon Oct  5 15:52:22 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_1.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_1.0.log
+    jobid: 10
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=1.0
+
+
+[Mon Oct  5 15:52:22 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_2.0.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_2.0.log
+    jobid: 11
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=2.0
+
+[Mon Oct  5 15:52:22 2020]
+Error in rule decoding:
+    jobid: 10
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_1.0.log
+    shell:
+        python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=0 			--zpos=1.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_1.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_1.0.npz 			--border-size=borderSize 			--magnitude-threshold=magnitudeThreshold 			--distance-threshold=distanceThreshold 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_1.0.log
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_1.0.log
+[Mon Oct  5 15:52:22 2020]
+Error in rule decoding:
+    jobid: 11
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_2.0.log
+    shell:
+        python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=0 			--zpos=2.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_0_zpos_2.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_2.0.npz 			--border-size=borderSize 			--magnitude-threshold=magnitudeThreshold 			--distance-threshold=distanceThreshold 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_2.0.log
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_0_zpos_2.0.log
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/rfang/github/merfishdecoder/snakemake/.snakemake/log/2020-10-05T155222.678980.snakemake.log

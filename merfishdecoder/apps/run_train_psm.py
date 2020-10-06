@@ -1,4 +1,4 @@
-import os
+import glob, os
 import pickle
 import pandas as pd
 import numpy as np
@@ -10,7 +10,7 @@ from merfishdecoder.util import utilities
 from merfishdecoder.util import barcoder
 
 def run_job(dataSetName: str = None,
-            decodedImagesName: list = None,
+            decodedImagesDir: str = None,
             outputName: str = "pixel_score_machine.pkl",
             zposNum: int = 50):
     
@@ -42,8 +42,9 @@ def run_job(dataSetName: str = None,
 
     # change to work directory
     os.chdir(dataSet.analysisPath)
-    fnames = random.sample(decodedImagesName,
-        min(len(decodedImagesName), zposNum))
+    fnames = glob.glob(os.path.join(decodedImagesDir, "*.npz"))
+    fnames = random.sample(fnames,
+        min(len(fnames), zposNum))
     
     X_tr = []; Y_tr = [];
     for fn in fnames:
