@@ -1,3 +1,0 @@
-KeyError in line 250 of /home/rfang/github/merfishdecoder/snakemake/Snakefile:
-'extractBarcodes'
-  File "/home/rfang/github/merfishdecoder/snakemake/Snakefile", line 250, in <module>

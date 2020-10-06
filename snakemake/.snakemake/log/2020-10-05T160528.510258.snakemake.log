@@ -1,3 +1,0 @@
-KeyError in line 6 of /home/rfang/github/merfishdecoder/snakemake/Snakefile:
-'global'
-  File "/home/rfang/github/merfishdecoder/snakemake/Snakefile", line 6, in <module>

@@ -1,3 +1,0 @@
-NameError in line 3 of /home/rfang/github/merfishdecoder/snakemake/Snakefile.test:
-name 'wildcards' is not defined
-  File "/home/rfang/github/merfishdecoder/snakemake/Snakefile.test", line 3, in <module>

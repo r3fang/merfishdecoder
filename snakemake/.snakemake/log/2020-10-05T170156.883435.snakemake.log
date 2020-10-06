@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 68 of /home/rfang/github/merfishdecoder/snakemake/Snakefile:
-Missing input files for rule registration:
-/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/filemap.csv

@@ -1,3 +1,0 @@
-KeyError in line 3 of /home/rfang/github/merfishdecoder/snakemake/Snakefile:
-'analysisPath'
-  File "/home/rfang/github/merfishdecoder/snakemake/Snakefile", line 3, in <module>

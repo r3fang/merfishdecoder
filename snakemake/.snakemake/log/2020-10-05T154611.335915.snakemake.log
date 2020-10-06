@@ -1,5 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 3 of /home/rfang/github/merfishdecoder/snakemake/Snakefile.test:
-Missing input files for rule all:
-/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_1.0_polyT.log
-/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/segmentedImages/fov_0_zpos_2.0_polyT.log

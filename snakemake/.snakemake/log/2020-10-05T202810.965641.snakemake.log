@@ -1,3 +1,0 @@
-CreateRuleException in line 476 of /home/rfang/github/merfishdecoder/snakemake/Snakefile:
-The name filterBarcodes is already used by another rule
-  File "/home/rfang/github/merfishdecoder/snakemake/Snakefile", line 476, in <module>

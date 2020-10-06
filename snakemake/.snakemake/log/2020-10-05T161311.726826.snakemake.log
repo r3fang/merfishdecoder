@@ -1,4 +1,0 @@
-Building DAG of jobs...
-WildcardError in line 219 of /home/rfang/github/merfishdecoder/snakemake/Snakefile:
-Wildcards in input files cannot be determined from output files:
-'fov'

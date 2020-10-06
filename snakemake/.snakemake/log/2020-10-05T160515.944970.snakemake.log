@@ -1,3 +1,0 @@
-AttributeError in line 3 of /home/rfang/github/merfishdecoder/snakemake/Snakefile:
-'dict' object has no attribute 'test'
-  File "/home/rfang/github/merfishdecoder/snakemake/Snakefile", line 3, in <module>
