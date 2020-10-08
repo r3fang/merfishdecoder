@@ -100,7 +100,7 @@ def parse_args():
         from merfishdecoder.apps import run_export_barcodes
         run_export_barcodes.run_job(
             dataSetName=args.data_set_name,
-            decodedBarcodesName=args.decoded_barcodes_name,
+            decodedBarcodesDir=args.decoded_barcodes_dir,
             outputName=args.output_name)
     elif args.command == "filter-barcodes":
         from merfishdecoder.apps import run_filter_barcodes
@@ -428,7 +428,6 @@ def add_extract_barcodes(subparsers):
                                     required=True,
                                     help="Pixel scoring machine name.")
 
-
     parser_extract_barcodes_opt = parser_extract_barcodes.add_argument_group("optional inputs")
     parser_extract_barcodes_opt.add_argument("--barcodes-per-core",
                                     type=int,
@@ -446,17 +445,17 @@ def add_export_barcodes(subparsers):
          "export-barcodes",
          formatter_class=argparse.ArgumentDefaultsHelpFormatter,
          help="Export Barcodes.")
-    
+
     parser_export_barcodes_req = parser_export_barcodes.add_argument_group("required inputs")
     parser_export_barcodes_req.add_argument("--data-set-name",
                                      type=str,
                                      required=True,
                                      help="MERFISH dataset name.")
 
-    parser_export_barcodes_req.add_argument("--decoded-barcodes-name",
-                                    nargs="+", 
+    parser_export_barcodes_req.add_argument("--decoded-barcodes-dir",
+                                    type=str, 
                                     required=True,
-                                    help="A list of decoded barcode file names.")
+                                    help="Directory contains the decoded barcodes.")
 
     parser_export_barcodes_req.add_argument("--output-name",
                                     type=str,
@@ -722,7 +721,6 @@ def add_export_gene_feature_matrix(subparsers):
                                      type=int,
                                      default=1,
                                      help="Max number of CPU cores.")
-
 
 def str2bool(v):
      ## adapted from the answer by Maxim at

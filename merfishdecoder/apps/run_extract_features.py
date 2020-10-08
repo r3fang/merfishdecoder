@@ -76,6 +76,9 @@ def run_job(
         features = features.assign(x = features.centroid.x)
         features = features.assign(y = features.centroid.y)
         features.to_file(outputName)
+    else:
+        with open(outputName, 'w') as fp: 
+            pass
 
     utilities.print_checkpoint("Done")
 

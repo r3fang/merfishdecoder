@@ -30,20 +30,17 @@ def run_job(dataSetName: str = None,
     
     """
     
-    # dataSetName = "MERFISH_test/data/"
-    # decodedBarcodesDir = "decodedBarcodes"
-    # outputName = "exportedBarcodes/barcodes.h5"
     utilities.print_checkpoint("Filter Barcodes")
     utilities.print_checkpoint("Start")
     
-    # generate zplane object
+    # generate MERFISH dataset object
     dataSet = dataset.MERFISHDataSet(
         dataDirectoryName = dataSetName);
 
     # change to work directory
     os.chdir(dataSet.analysisPath)
     
-    # create the folder
+    # create output folder
     os.makedirs(os.path.dirname(outputName),
                 exist_ok=True)
     
@@ -51,7 +48,6 @@ def run_job(dataSetName: str = None,
     f = h5py.File(exportedBarcodesName, 'r')
     fovs = list(f.keys())
     f.close()
-    
     barcodes = pd.concat([ 
         pd.read_hdf(exportedBarcodesName, key = key)
         for key in random.sample(fovs, min(len(fovs), fovNum)) ],
@@ -64,21 +60,21 @@ def run_job(dataSetName: str = None,
             codebook = dataSet.get_codebook(),
             cutoff = misIdentificationRate,
             bins = 200);
-
+    
     # filter barcodes
-    barcodes = \
-        barcoder.filter_barcodes(
-            fname = exportedBarcodesName,
-            codebook = dataSet.get_codebook(),
-            likelihoodThreshold = likelihoodThreshold,
-            keepBlankBarcodes = keepBlankBarcodes,
-            minAreaSize = minAreaSize);
-
-    # save barcodes per fov
-    for fov in np.unique(barcodes.fov):
-        barcodes[barcodes.fov == fov].to_hdf(
+    for fov in fovs:
+        barcodes = pd.read_hdf(exportedBarcodesName, 
+                               key=fov)
+        
+        barcodes = barcoder.filter_barcodes(
+            barcodes,
+            dataSet.get_codebook(),
+            likelihoodThreshold=likelihoodThreshold,
+            keepBlankBarcodes=keepBlankBarcodes,
+            minAreaSize=minAreaSize)
+        
+        barcodes.to_hdf(
             outputName,
-            key = "fov_%d" % fov);
+            key = fov);
 
     utilities.print_checkpoint("Done")
-

@@ -1,0 +1,166 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 10
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	assignBarcodes_DAPI
+	1	assignBarcodes_polyT
+	1	createAnalysis
+	30	decoding
+	1	exportBarcodes
+	1	exportFeatures_DAPI
+	1	exportFeatures_polyT
+	30	extractBarcodes
+	1	filterBarcodes
+	1	filterBarcodesFeature
+	1	filterFeatures
+	30	registration
+	30	segmentation_DAPI
+	30	segmentation_polyT
+	1	trainPSM
+	161
+
+[Tue Oct  6 22:44:30 2020]
+localrule createAnalysis:
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    jobid: 1
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data
+
+[Tue Oct  6 22:44:31 2020]
+Finished job 1.
+1 of 161 steps (0.62%) done
+
+[Tue Oct  6 22:44:31 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_4_zpos_1.0.tif
+    jobid: 155
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=4, zpos=1.0
+
+
+[Tue Oct  6 22:44:31 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_3_zpos_6.0.tif
+    jobid: 154
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=3, zpos=6.0
+
+
+[Tue Oct  6 22:44:31 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_4.0.tif
+    jobid: 134
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=4.0
+
+
+[Tue Oct  6 22:44:31 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_2_zpos_6.0.tif
+    jobid: 148
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=2, zpos=6.0
+
+
+[Tue Oct  6 22:44:31 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_6.0.tif
+    jobid: 142
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=6.0
+
+
+[Tue Oct  6 22:44:31 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_4_zpos_2.0.tif
+    jobid: 156
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=4, zpos=2.0
+
+
+[Tue Oct  6 22:44:31 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_0_zpos_5.0.tif
+    jobid: 135
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=0, zpos=5.0
+
+
+[Tue Oct  6 22:44:31 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_3.0.tif
+    jobid: 139
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=3.0
+
+
+[Tue Oct  6 22:44:31 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_3_zpos_5.0.tif
+    jobid: 153
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=3, zpos=5.0
+
+
+[Tue Oct  6 22:44:31 2020]
+rule registration:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/create_analysis.log
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_1_zpos_4.0.tif
+    jobid: 140
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=1, zpos=4.0
+
+[Tue Oct  6 22:46:42 2020]
+Finished job 153.
+2 of 161 steps (1%) done
+
+[Tue Oct  6 22:46:42 2020]
+rule decoding:
+    input: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/warpedImages/fov_3_zpos_5.0.tif
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_3_zpos_5.0_decoding.log
+    jobid: 123
+    wildcards: analysisPath=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data, fov=3, zpos=5.0
+
+[Tue Oct  6 22:46:50 2020]
+Error in rule decoding:
+    jobid: 123
+    output: /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_3_zpos_5.0_decoding.log
+    shell:
+        
+		python /home/rfang/github/merfishdecoder/bin/merfishdecoder decode-images 			--data-set-name=MERFISH_test/data 			--fov=3 			--zpos=5.0 			--decoding-images-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/processedImages/fov_3_zpos_5.0.npz 			--output-name=/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/decodedImages/fov_3_zpos_5.0.npz 			--border-size=80 			--magnitude-threshold=0 			--distance-threshold=0.6 			> /mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_3_zpos_5.0_decoding.log
+		
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job decoding since they might be corrupted:
+/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/logs/fov_3_zpos_5.0_decoding.log
+[Tue Oct  6 22:47:02 2020]
+Finished job 148.
+3 of 161 steps (2%) done
+[Tue Oct  6 22:47:05 2020]
+Finished job 155.
+4 of 161 steps (2%) done
+[Tue Oct  6 22:47:10 2020]
+Finished job 156.
+5 of 161 steps (3%) done
+[Tue Oct  6 22:47:11 2020]
+Finished job 154.
+6 of 161 steps (4%) done
+[Tue Oct  6 22:47:14 2020]
+Finished job 134.
+7 of 161 steps (4%) done
+[Tue Oct  6 22:47:14 2020]
+Finished job 142.
+8 of 161 steps (5%) done
+[Tue Oct  6 22:47:14 2020]
+Finished job 140.
+9 of 161 steps (6%) done
+[Tue Oct  6 22:47:14 2020]
+Finished job 139.
+10 of 161 steps (6%) done
+[Tue Oct  6 22:47:14 2020]
+Finished job 135.
+11 of 161 steps (7%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/rfang/github/merfishdecoder/merfish-parameters/snakemake/.snakemake/log/2020-10-06T224429.846994.snakemake.log

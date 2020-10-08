@@ -69,6 +69,7 @@ def decoding(obj: zplane.Zplane = None,
         magnitudeThreshold = magnitudeThreshold,
         oneBitThreshold = bitNum - 1,
         numCores = numCores)
+    
     return decodeDict
 
 @jit(nopython=True)
@@ -207,6 +208,11 @@ def pixel_based_decode(
     
     pixelDistanceTraces[pixelIndexes] = \
         np.ravel(distances)
+
+    pixelDistanceTraces = np.clip(
+        a=pixelDistanceTraces, 
+        a_min=0, 
+        a_max=distanceThreshold)
     
     distanceImage = np.reshape(
        pixelDistanceTraces,

@@ -214,23 +214,15 @@ def export_barcodes(
 
     return barcodes
     
-def filter_barcodes(fname,
+def filter_barcodes(barcodes,
                     codebook,
                     likelihoodThreshold: float = None,
                     keepBlankBarcodes: bool = False,
                     minAreaSize: int = 1):
     
-    f = h5py.File(fname, 'r')
-    keys = list(f.keys())
-    f.close()
-    barcodes = []
-    for key in keys:
-        x = pd.read_hdf(fname, key = key)
-        x = x[x.likelihood >= likelihoodThreshold]
-        x = x[x.area >= minAreaSize]
-        if not keepBlankBarcodes:
-            x = x[x.barcode_id.isin(codebook.get_coding_indexes())]
-        barcodes.append(x)
-    barcodes = pd.concat(
-        barcodes, ignore_index = False)    
+    barcodes = barcodes[barcodes.likelihood >= likelihoodThreshold]
+    barcodes = barcodes[barcodes.area >= minAreaSize]
+    if not keepBlankBarcodes:
+        barcodes = barcodes[
+            barcodes.barcode_id.isin(codebook.get_coding_indexes())]
     return barcodes   

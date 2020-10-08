@@ -8,6 +8,13 @@ from merfishdecoder.core import dataset
 from merfishdecoder.util import utilities
 from merfishdecoder.util import segmentation
     
+def FileCheck(fn):
+	try:
+		geo.read_file(fn)
+		return True
+	except:
+		return False
+
 def run_job(
     dataSetName: str = None,
     outputName: str = None,
@@ -45,12 +52,17 @@ def run_job(
     # create output folder
     os.makedirs(os.path.dirname(outputName),
                 exist_ok=True)
+
+
+    # check file formats first and remove empty files
+    segmentedFeaturesNameValid = \
+        [ x for x in segmentedFeaturesName if FileCheck(x) ]
     
     # load all the segmented features
     features = pd.concat([ 
-            geo.read_file(f) for f in segmentedFeaturesName], 
+            geo.read_file(f) for f in segmentedFeaturesNameValid], 
         ignore_index=True)
-    
+
     # connect features per fov
     features = pd.concat([ 
         segmentation.connect_features_per_fov(
