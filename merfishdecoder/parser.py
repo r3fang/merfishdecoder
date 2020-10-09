@@ -136,7 +136,7 @@ def parse_args():
         from merfishdecoder.apps import run_export_features
         run_export_features.run_job(
             dataSetName=args.data_set_name,
-            segmentedFeaturesName=args.segmented_features_name,
+            segmentedFeaturesDir=args.segmented_features_dir,
             outputName=args.output_name,
             bufferSize=args.buffer_size)
     elif args.command == "filter-features":
@@ -602,8 +602,8 @@ def add_export_features(subparsers):
                                      required=True,
                                      help="MERFISH dataset name.")
 
-    parser_export_features_req.add_argument("--segmented-features-name",
-                                     nargs="+", 
+    parser_export_features_req.add_argument("--segmented-features-dir",
+                                     type=str, 
                                      required=True,
                                      help="Extracted feature file names.")
 

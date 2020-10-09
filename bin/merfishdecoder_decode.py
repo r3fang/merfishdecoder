@@ -12,7 +12,6 @@ from merfishdecoder.util import imagefilter
 from merfishdecoder.util import utilities
 from merfishdecoder.util import decoder
 from merfishdecoder.util import barcoder
-from merfishdecoder.util import segmentation
 
 def main():
     parser = argparse.ArgumentParser(description='MERFISH Analysis.')
@@ -37,6 +36,11 @@ def main():
                             type=str,
                             required=True,
                             help="Pixel scoring machine name.")
+
+    parser_req.add_argument("--output-name",
+                            type=str,
+                            required=True,
+                            help="Output barcode file name.")
 
     parser_opt = parser.add_argument_group("optional inputs")
     parser_opt.add_argument("--ref-frame-index",
@@ -75,12 +79,12 @@ def main():
                             help="Max number of CPU cores.")
     
     args = parser.parse_args()
-
     dataSetName = args.data_set_name
     fov = args.fov
     zpos = args.zpos
     psmName = args.psm_name
     maxCores = args.max_cores
+    outputName = args.output_name
     
     refFrameIndex = args.ref_frame_index
     highPassFilterSigma = args.high_pass_filter_sigma
@@ -90,42 +94,37 @@ def main():
     distanceThreshold = args.distance_threshold
     barcodesPerCore = args.barcodes_per_core
 
-    modelType_DAPI = "nuclei"
-    modelType_polyT = "cyto"
-    diameter_DAPI = 150
-    diameter_polyT = 200
-
     utilities.print_checkpoint("Start MEFISH Analysis")
-    prefix = "fov_%d_zpos_%0.1f" % (fov, zpos)
     
     # generate zplane object
     zp = zplane.Zplane(dataSetName,
                        fov=fov,
                        zpos=zpos)
     
-    # load the score machine
+    # load pixel score machine
     psm = pickle.load(open(psmName, "rb"))
-    
+
     # create the folder
-    os.makedirs("extractedBarcodes", exist_ok=True)
-    os.makedirs("extractedFeatures", exist_ok=True)
+    os.makedirs(os.path.dirname(outputName),
+        exist_ok=True)
     
     utilities.print_checkpoint("Load Readout Images")
     # load readout images
     zp.load_readout_images(
-        zp.get_readout_name())
+        zp.get_bit_name())
     
     utilities.print_checkpoint("Correct Stage Drift")
     (zp, errors) = registration.correct_drift(
         obj = zp,
+        frameNames = zp.get_bit_name(),
         refFrameIndex = refFrameIndex,
         highPassSigma = highPassFilterSigma)
     
     utilities.print_checkpoint("Correct Chromatic Abeeration")
     profile = zp.get_chromatic_aberration_profile()
-
     zp = registration.correct_chromatic_aberration(
         obj = zp,
+        frameNames = zp.get_bit_name(),
         profile = profile)
     
     utilities.print_checkpoint("Remove Cell Background")
@@ -135,12 +134,12 @@ def main():
          readoutImage = True,
          fiducialImage = False,
          sigma = highPassFilterSigma)
-        
+
     utilities.print_checkpoint("Adjust Illumination")
     scaleFactors = preprocessing.estimate_scale_factors(
         obj = zp,
         frameNames = zp.get_bit_name())
-            
+
     # normalize image intensity
     zp = preprocessing.scale_readout_images(
         obj = zp,
@@ -155,10 +154,9 @@ def main():
              distanceThreshold = distanceThreshold,
              magnitudeThreshold = magnitudeThreshold,
              numCores = maxCores)
-    
+
     utilities.print_checkpoint("Extract Barcodes")
     if decodedImages["decodedImage"].max() > -1:
-        # calculate pixel probability
         decodedImages["probabilityImage"] = \
             decoder.calc_pixel_probability(
                 model = psm,
@@ -186,79 +184,7 @@ def main():
             'magnitude', 'distance', 'area', 'fov', 'global_z', 'z'])
 
     # save barcodes
-    barcodes.to_hdf("extractedBarcodes/%s.h5" % prefix,
-                    key = "barcodes")
-    
-    utilities.print_checkpoint("Segment Images DAPI")
-    segmentedImage = segmentation.run_cell_pose(
-        gpu = False,
-        modelType = modelType_DAPI,
-        images = [ zp.get_readout_images(["DAPI"])[0] ],
-        diameter = diameter_DAPI
-        )[0] 
-        
-    utilities.print_checkpoint("Extract Features DAPI")
-    ft = [ (idx, segmentation.extract_polygon_per_index(segmentedImage, idx)) \
-        for idx in np.unique(segmentedImage[segmentedImage > 0]) ]
-    ft = [ (i, x) for (i, x) in ft if x != None ]
-
-    # convert to a data frame
-    if len(ft) > 0:
-        features = geo.GeoDataFrame(
-            pd.DataFrame({
-                "fov": [fov] * len(ft),
-                "global_z": [zpos] * len(ft),
-                "z": zp._dataSet.get_z_positions().index(zpos)}),
-            geometry=[x[1] for x in ft])
-    else:
-        features = geo.GeoDataFrame(
-            pd.DataFrame(
-                columns = ["fov", "global_z", "z", "x", "y"]), 
-                geometry=None)
-    
-    if not features.empty:
-        features = features.assign(x = features.centroid.x)
-        features = features.assign(y = features.centroid.y)
-        features.to_file("extractedFeatures/%s_DAPI.shp" % prefix)
-    else:
-        with open("extractedFeatures/%s_DAPI.shp" % prefix, 'w') as fp: 
-            pass
-
-    utilities.print_checkpoint("Segment Images polyT")
-    segmentedImage = segmentation.run_cell_pose(
-        gpu = False,
-        modelType = modelType_polyT,
-        images = [ zp.get_readout_images(["polyT"])[0] ],
-        diameter = diameter_polyT
-        )[0] 
-        
-    utilities.print_checkpoint("Extract Features polyT")
-    ft = [ (idx, segmentation.extract_polygon_per_index(segmentedImage, idx)) \
-        for idx in np.unique(segmentedImage[segmentedImage > 0]) ]
-    ft = [ (i, x) for (i, x) in ft if x != None ]
-
-    # convert to a data frame
-    if len(ft) > 0:
-        features = geo.GeoDataFrame(
-            pd.DataFrame({
-                "fov": [fov] * len(ft),
-                "global_z": [zpos] * len(ft),
-                "z": zp._dataSet.get_z_positions().index(zpos)}),
-            geometry=[x[1] for x in ft])
-    else:
-        features = geo.GeoDataFrame(
-            pd.DataFrame(
-                columns = ["fov", "global_z", "z", "x", "y"]), 
-                geometry=None)
-    
-    if not features.empty:
-        features = features.assign(x = features.centroid.x)
-        features = features.assign(y = features.centroid.y)
-        features.to_file("extractedFeatures/%s_polyT.shp" % prefix)
-    else:
-        with open("extractedFeatures/%s_polyT.shp" % prefix, 'w') as fp: 
-            pass
-
+    barcodes.to_hdf(outputName, key = "barcodes")
     utilities.print_checkpoint("Done")
 
 if __name__ == "__main__":

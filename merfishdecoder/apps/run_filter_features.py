@@ -29,8 +29,8 @@ def run_job(
     """
     
     # dataSetName = "MERFISH_test/data"
-    # segmentedFeaturesName = "segmentedFeatures"
-    # outputName = "exportedFeatures/nucleus"
+    # exportedFeaturesName = "exportedFeatures/DAPI.shp"
+    # outputName = "exportedFeatures/DAPI.shp"
     # borderSize = 50
     # minZplane = 3
     
@@ -50,7 +50,8 @@ def run_job(
                 exist_ok=True)
     
     # load all the segmented features
-    features = geo.read_file(exportedFeaturesName)
+    features = geo.read_file(
+        exportedFeaturesName)
 
     # filter feautres
     features = pd.concat([ 
@@ -62,12 +63,15 @@ def run_job(
             borderSize = borderSize) \
             for fov in np.unique(features.fov) ],
         ignore_index = True)
-    
+
     if not features.empty:
         features[['fov', 'x', 'y', 'z', 'global_x', 
             'global_y', 'global_z', 'name', 
             'geometry']].to_file(
             filename = outputName)
+    else:
+        with open(outputName, "w") as fout:
+            pass
 
     utilities.print_checkpoint("Done")
 

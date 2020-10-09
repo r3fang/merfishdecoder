@@ -50,7 +50,7 @@ def run_job(dataSetName: str = None,
     for fn in fnames:
         decodes = np.load(fn)
         m = np.log10(decodes["magnitudeImage"][
-            decodes["decodedImage"] > -1]+1)
+            decodes["decodedImage"] > -1])
 
         d = decodes["distanceImage"][
             decodes["decodedImage"] > -1]
@@ -68,8 +68,9 @@ def run_job(dataSetName: str = None,
         numNeg = np.count_nonzero(y == 0)
         
         # sample
-        idxPos = np.random.choice(np.nonzero(y)[0], numNeg)
-        idxNeg = np.where(y == 0)[0]
+        num = min(numPos, numNeg)
+        idxPos = np.random.choice(np.nonzero(y)[0], num)
+        idxNeg = np.random.choice(np.where(y == 0)[0], num)
 
         # create training dataset
         x_tr = x[np.concatenate([idxPos, idxNeg])]
@@ -82,17 +83,24 @@ def run_job(dataSetName: str = None,
     X_tr = np.concatenate(X_tr)
     Y_tr = np.concatenate(Y_tr)
     
+    idx = np.random.choice(
+        range(X_tr.shape[0]), 
+        min(X_tr.shape[0], 50000))
+
     rbf_svc = svm.SVC(
         kernel='rbf', 
         probability=True, 
         gamma="auto",
         C = 0.5)
-    
-    rbf_svc.fit(X_tr, Y_tr)
+
+    rbf_svc.fit(X_tr[idx], Y_tr[idx])
     
     pickle.dump(rbf_svc, 
         open(outputName, 'wb'))
     
+    dat = pd.DataFrame(X_tr[idx], columns=["m", "d"])
+    dat = dat.assign(y = Y_tr[idx])
+    dat.to_csv("pixel_score_machine.csv", index=False)
     utilities.print_checkpoint("Done")
 
 

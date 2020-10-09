@@ -18,7 +18,7 @@ def FileCheck(fn):
 def run_job(
     dataSetName: str = None,
     outputName: str = None,
-    segmentedFeaturesName: list = None,
+    segmentedFeaturesDir: str = None,
     bufferSize: int = 15):
     
     """
@@ -35,8 +35,8 @@ def run_job(
     """
     
     # dataSetName = "MERFISH_test/data"
-    # segmentedFeaturesName = "extractedFeatures"
-    # outputName = "exportedFeatures/DAPI"
+    # segmentedFeaturesDir = "extractedFeatures/DAPI/"
+    # outputName = "exportedFeatures/DAPI.shp"
     
     # check points
     utilities.print_checkpoint("Export Features")
@@ -52,7 +52,10 @@ def run_job(
     # create output folder
     os.makedirs(os.path.dirname(outputName),
                 exist_ok=True)
-
+    
+    segmentedFeaturesName = \
+        [ os.path.join(segmentedFeaturesDir, x) \
+        for x in os.listdir(segmentedFeaturesDir) if "shp" in x]
 
     # check file formats first and remove empty files
     segmentedFeaturesNameValid = \
