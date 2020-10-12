@@ -67,9 +67,11 @@ def run_job(dataSetName: str = None,
     features = geo.read_file(
         featuresName) 
     
+    features.global_x = features.centroid.x
+    features.global_y = features.centroid.y
     # create the centroid for each feature
     features = pd.DataFrame([[ 
-        features[features.name == fn].fov.mean().astype(int),
+        features[features.name == fn].fov.mean(),
         features[features.name == fn].x.mean(),
         features[features.name == fn].y.mean(),
         features[features.name == fn].global_x.mean(),
@@ -80,7 +82,7 @@ def run_job(dataSetName: str = None,
         for fn in np.unique(features.name) ],
         columns = ["fov", "x", "y", "global_x", \
             "global_y", "name", "area", "avg_area"])
-    
+
     # assign barcodes to cell
     with mp.Pool(processes=maxCores) as pool:
         vectorList = pool.starmap(

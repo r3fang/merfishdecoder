@@ -35,8 +35,10 @@ class DataSet(object):
     def __init__(self, 
                  dataDirectoryName: str,
                  dataHome: str = None, 
-                 analysisHome: str = None
+                 analysisHome: str = None,
+                 microscopeParametersHome: str = None
                  ):
+    
         """Create a dataset for the specified raw data.
         Args:
             dataDirectoryName: the relative directory to the raw data
@@ -48,13 +50,23 @@ class DataSet(object):
                     results for this DataSet will be stored in
                     analysisHome/dataDirectoryName. If analysisHome is not
                     specified, ANALYSIS_HOME is read from the .env file.
+            microscopeParametersHome: the base path for storing microscope parameter files. 
 
         """
         if dataHome is None:
             dataHome = merfishdecoder.DATA_HOME
+        else:
+            merfishdecoder.DATA_HOME = dataHome
         
         if analysisHome is None:
             analysisHome = merfishdecoder.ANALYSIS_HOME
+        else:
+            merfishdecoder.ANALYSIS_HOME = analysisHome
+
+        if microscopeParametersHome is None:
+            microscopeParametersHome = merfishdecoder.MICROSCOPE_PARAMETERS_HOME
+        else:
+            merfishdecoder.MICROSCOPE_PARAMETERS_HOME = microscopeParametersHome
 
         self.dataSetName = dataDirectoryName
         self.dataHome = dataHome
@@ -384,7 +396,6 @@ class ImageDataSet(DataSet):
         return xmltodict.parse(filePortal.read_as_text())
 
 class MERFISHDataSet(ImageDataSet):
-
     def __init__(self, dataDirectoryName: str, codebookNames: List[str] = None,
                  dataOrganizationName: str = None, positionFileName: str = None,
                  dataHome: str = None, analysisHome: str = None,

@@ -135,8 +135,9 @@ def global_align_features_per_fov(
         0, dataSet.get_microns_per_pixel(), 
         dataSet.get_fov_offset(fov)[0], 
         dataSet.get_fov_offset(fov)[1]]))
-    x = x.assign(global_x = x.centroid.x.mean())
-    x = x.assign(global_y = x.centroid.y.mean())
+    
+    x = x.assign(global_x = x.centroid.x)
+    x = x.assign(global_y = x.centroid.y)
     return x
 
 def filter_features_per_fov(

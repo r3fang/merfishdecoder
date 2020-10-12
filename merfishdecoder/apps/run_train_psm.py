@@ -49,6 +49,7 @@ def run_job(dataSetName: str = None,
     X_tr = []; Y_tr = [];
     for fn in fnames:
         decodes = np.load(fn)
+
         m = np.log10(decodes["magnitudeImage"][
             decodes["decodedImage"] > -1])
 
@@ -66,7 +67,7 @@ def run_job(dataSetName: str = None,
         # now sample the same number of positive barcodes
         numPos = np.count_nonzero(y == 1)
         numNeg = np.count_nonzero(y == 0)
-        
+
         # sample
         num = min(numPos, numNeg)
         idxPos = np.random.choice(np.nonzero(y)[0], num)
@@ -100,6 +101,7 @@ def run_job(dataSetName: str = None,
     
     dat = pd.DataFrame(X_tr[idx], columns=["m", "d"])
     dat = dat.assign(y = Y_tr[idx])
+    dat = dat.assign(p = rbf_svc.predict_proba(X_tr[idx])[:,1])
     dat.to_csv("pixel_score_machine.csv", index=False)
     utilities.print_checkpoint("Done")
 

@@ -1,39 +1,23 @@
 localrules: all, createAnalysis
 
-import random
-
-random.seed(1)
-fovs = random.sample(range(config["global"]["fovs"]), min(config["global"]["fovs"], config["trainPSM"]["zposNum"]))
-zposes = config["global"]["zposes"]
+import numpy as np 
+np.random.seed(seed=config["trainPSM"]["seed"])
+fovs = np.random.choice(range(config["global"]["fovs"]), config["trainPSM"]["zposNum"], replace = False)
+np.random.seed(seed=config["trainPSM"]["seed"])
+zposes = np.random.choice(config["global"]["zposes"], config["trainPSM"]["zposNum"], replace = True)
 
 rule all:
 	input:
-		expand("{analysisPath}/logs/create_analysis.log", 
-			analysisPath = config["global"]["analysisPath"]),
-
-		expand("{analysisPath}/warpedImages/fov_{fov}_zpos_{zpos}.tif", 
-			analysisPath = config["global"]["analysisPath"], 
-			fov = fovs,
-			zpos = zposes),
-
-		expand("{analysisPath}/processedImages/fov_{fov}_zpos_{zpos}.npz", 
-			analysisPath = config["global"]["analysisPath"], 
-			fov = fovs,
-			zpos = zposes),
-
 		expand("{analysisPath}/decodedImages/fov_{fov}_zpos_{zpos}.npz", 
-			analysisPath = config["global"]["analysisPath"], 
-			fov = fovs,
-			zpos = zposes),
-
-		expand("{analysisPath}/pixel_score_machine.pkl",
-			analysisPath = config["global"]["analysisPath"])
+			zip, fov=fovs, zpos=zposes, 
+			analysisPath = [ config["global"]["analysisPath"] ] * config["trainPSM"]["zposNum"]),
+		
+		"{analysisPath}/pixel_score_machine.pkl".format(
+			analysisPath=config["global"]["analysisPath"])
 
 rule createAnalysis:
 	params:
-		dataHome = config["global"]["dataHome"],
 		md = config["global"]["merfishdecoder"],
-		analysisHome = config["global"]["analysisHome"],
 		dataSetName = config["global"]["dataSetName"],
 		codebookName = config["global"]["codebookName"],
 		dataOrganizationName = config["global"]["dataOrganizationName"],
@@ -42,8 +26,8 @@ rule createAnalysis:
 		positionName = config["global"]["positionName"]
 
 	output:
-		"{analysisPath}/logs/create_analysis.log"
-	
+		log = "{analysisPath}/logs/create_analysis.log"
+
 	shell:
 		"""
 		python {params.md} create-analysis \
@@ -53,15 +37,13 @@ rule createAnalysis:
 			--microscope-parameter-name={params.microscopeParameterName} \
 			--microscope-chromatic-aberration-name={params.microscopeChromaticAberrationName} \
 			--position-name={params.positionName} \
-			--data-home={params.dataHome} \
-			--analysis-home={params.analysisHome} \
-			> {output}
+			> {output.log}
 		"""
 
 rule registration:
 	input:
 		"{analysisPath}/logs/create_analysis.log"
-
+	
 	params:
 		dataSetName = config["global"]["dataSetName"],
 		md = config["global"]["merfishdecoder"],
@@ -70,11 +52,11 @@ rule registration:
 		highPassFilterSigma = config["registration"]["highPassFilterSigma"],
 		registerColor = config["registration"]["registerColor"],
 		saveFiducials = config["registration"]["saveFiducials"]
-
+		
 	output:
 		file = "{analysisPath}/warpedImages/fov_{fov}_zpos_{zpos}.tif",
-		log = "{analysisPath}/logs/fov_{fov}_zpos_{zpos}_registration.log"
-
+		log = "{analysisPath}/warpedImages/fov_{fov}_zpos_{zpos}.log"
+	
 	shell:
 		"""
 		python {params.md} register-images \
@@ -92,23 +74,25 @@ rule registration:
 
 rule preprocessing:
 	input:
-		"{analysisPath}/warpedImages/fov_{fov}_zpos_{zpos}.tif"
+		file = "{analysisPath}/warpedImages/fov_{fov}_zpos_{zpos}.tif",
+		log  = "{analysisPath}/warpedImages/fov_{fov}_zpos_{zpos}.log"
 
 	params:
 		dataSetName = config["global"]["dataSetName"],
 		md = config["global"]["merfishdecoder"],
 		highPassFilterSigma = config["pre"]["highPassFilterSigma"]
-	
+
 	output:
 		file = "{analysisPath}/processedImages/fov_{fov}_zpos_{zpos}.npz",
-		log = "{analysisPath}/logs/fov_{fov}_zpos_{zpos}_processing.log"
+		log  = "{analysisPath}/processedImages/fov_{fov}_zpos_{zpos}.log"
 
 	shell:
 		"""
 		python {params.md} process-images \
 			--data-set-name={params.dataSetName} \
-			--fov={wildcards.fov} --zpos={wildcards.zpos} \
-			--warped-images-name={input} \
+			--fov={wildcards.fov} \
+			--zpos={wildcards.zpos} \
+			--warped-images-name={input.file} \
 			--output-name={output.file} \
 			--high-pass-filter-sigma={params.highPassFilterSigma} \
 			> {output.log}
@@ -116,55 +100,58 @@ rule preprocessing:
 
 rule decoding:
 	input:
-		"{analysisPath}/processedImages/fov_{fov}_zpos_{zpos}.npz"
-	
+		file = "{analysisPath}/processedImages/fov_{fov}_zpos_{zpos}.npz",
+		log  = "{analysisPath}/processedImages/fov_{fov}_zpos_{zpos}.log"
+		
 	params:
 		dataSetName = config["global"]["dataSetName"],
 		md = config["global"]["merfishdecoder"],
 		borderSize = config["decoding"]["borderSize"],
 		magnitudeThreshold = config["decoding"]["magnitudeThreshold"],
-		distanceThreshold = config["decoding"]["distanceThreshold"]
-	
+		distanceThreshold = config["decoding"]["distanceThreshold"],
+		maxCores = 1
+		
 	output:
 		file = "{analysisPath}/decodedImages/fov_{fov}_zpos_{zpos}.npz",
-		log = "{analysisPath}/logs/fov_{fov}_zpos_{zpos}_decoding.log"
-	
+		log  = "{analysisPath}/decodedImages/fov_{fov}_zpos_{zpos}.log"
+
 	shell:
 		"""
 		python {params.md} decode-images \
 			--data-set-name={params.dataSetName} \
 			--fov={wildcards.fov} \
 			--zpos={wildcards.zpos} \
-			--decoding-images-name={input} \
-			--output-name={output.file} \
+			--decoding-images-name={input.file}  \
+			--output-name={output.file}  \
 			--border-size={params.borderSize} \
 			--magnitude-threshold={params.magnitudeThreshold} \
 			--distance-threshold={params.distanceThreshold} \
+			--max-cores={params.maxCores} \
 			> {output.log}
 		"""
 
 rule trainPSM:
 	input:
 		expand("{analysisPath}/decodedImages/fov_{fov}_zpos_{zpos}.npz", 
-			analysisPath = config["global"]["analysisPath"], 
-			fov = fovs, 
-			zpos = zposes)
+			zip, fov=fovs, zpos=zposes, 
+			analysisPath = [ config["global"]["analysisPath"] ] * config["trainPSM"]["zposNum"]),
 
 	params:
 		dataSetName = config["global"]["dataSetName"],
 		md = config["global"]["merfishdecoder"],
 		zposNum = config["trainPSM"]["zposNum"]
-	
+
 	output:
 		file = "{analysisPath}/pixel_score_machine.pkl",
 		log = "{analysisPath}/logs/train_PSM.log"
-	
+
 	shell:
 		"""
 		python {params.md} train-psm \
 			--data-set-name={params.dataSetName} \
-			--decoded-images-dir={wildcards.analysisPath}/decodedImages \
+			--decoded-images-dir={wildcards.analysisPath}/decodedImages/ \
 			--output-name={output.file} \
 			--zpos-num={params.zposNum} \
 			> {output.log}
 		"""
+

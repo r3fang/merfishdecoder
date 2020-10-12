@@ -241,7 +241,7 @@ def calc_pixel_probability(
     distanceImage:  np.ndarray = None,
     minProbability: float = 0.01):
     
-    m = np.log10(magnitudeImage[decodedImage > -1]+1)
+    m = np.log10(magnitudeImage[decodedImage > -1])
     d = distanceImage[decodedImage > -1]
     p = model.predict_proba(
         np.array([m, d]).T)[:,1]

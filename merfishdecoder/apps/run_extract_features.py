@@ -71,7 +71,7 @@ def run_job(
         features = geo.GeoDataFrame(
             pd.DataFrame(columns = ["fov", "global_z", "z", "x", "y"]), 
             geometry=None)
-    
+
     if not features.empty:
         features = features.assign(x = features.centroid.x)
         features = features.assign(y = features.centroid.y)
