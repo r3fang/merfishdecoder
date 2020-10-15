@@ -15,6 +15,7 @@ def parse_args():
     add_decoding(subparsers)
     add_train_psm(subparsers)
     add_extract_barcodes(subparsers)
+    add_extract_pixel_traces(subparsers)
     add_export_barcodes(subparsers)
     add_filter_barcodes(subparsers)
     add_segmentation(subparsers)
@@ -23,6 +24,7 @@ def parse_args():
     add_filter_features(subparsers)
     add_barcode_assignment(subparsers)
     add_export_gene_feature_matrix(subparsers)
+    add_estimate_bit_error(subparsers)
 
     if len(sys.argv) > 1:
         if (sys.argv[1] == '--version' or sys.argv[1] == '-v'):
@@ -85,6 +87,15 @@ def parse_args():
             decodedImagesDir=args.decoded_images_dir,
             outputName=args.output_name,
             zposNum=args.zpos_num)
+    elif args.command == "extract-pixel-traces":
+        from merfishdecoder.apps import run_extract_pixel_traces
+        run_extract_pixel_traces.run_job(
+            dataSetName=args.data_set_name,
+            fov=args.fov,
+            zpos=args.zpos,
+            processedImagesName=args.processed_images_name,
+            decodedImagesName=args.decoded_images_name,
+            outputName=args.output_name)
     elif args.command == "extract-barcodes":
         from merfishdecoder.apps import run_extract_barcodes
         run_extract_barcodes.run_job(
@@ -164,6 +175,12 @@ def parse_args():
             featuresName=args.features_name,
             outputName=args.output_name,
             maxCores=args.max_cores)
+    elif args.command == "estimate-bit-error":
+        from merfishdecoder.apps import run_estimate_bit_err
+        run_estimate_bit_err.run_job(
+            dataSetName=args.data_set_name,
+            pixelTracesDir=args.pixel_traces_dir,
+            outputName=args.output_name)
     else:
         print("command %s not found" % args.command)
 
@@ -439,6 +456,43 @@ def add_extract_barcodes(subparsers):
                                     default=10,
                                     help="Max number of cores for parallel computing.")
 
+
+def add_extract_pixel_traces(subparsers):
+    parser_extract_pixel_traces= subparsers.add_parser(
+         "extract-pixel-traces",
+         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+         help="Extract Barcodes.")
+    
+    parser_extract_pixel_traces_req = parser_extract_pixel_traces.add_argument_group("required inputs")
+    parser_extract_pixel_traces_req.add_argument("--data-set-name",
+                                     type=str,
+                                     required=True,
+                                     help="MERFISH dataset name.")
+
+    parser_extract_pixel_traces_req.add_argument("--fov",
+                                    type=int,
+                                    required=True,
+                                    help="Field of view index.")
+
+    parser_extract_pixel_traces_req.add_argument("--zpos",
+                                    type=float,
+                                    required=True,
+                                    help="Z positions in uM.")
+
+    parser_extract_pixel_traces_req.add_argument("--processed-images-name",
+                                    type=str,
+                                    required=True,
+                                    help="Processed image file name.")
+
+    parser_extract_pixel_traces_req.add_argument("--decoded-images-name",
+                                    type=str,
+                                    required=True,
+                                    help="Decoded image file name.")
+
+    parser_extract_pixel_traces_req.add_argument("--output-name",
+                                    type=str,
+                                    required=True,
+                                    help="Output barcode file name.")
 
 def add_export_barcodes(subparsers):
     parser_export_barcodes= subparsers.add_parser(
@@ -721,6 +775,28 @@ def add_export_gene_feature_matrix(subparsers):
                                      type=int,
                                      default=1,
                                      help="Max number of CPU cores.")
+
+def add_estimate_bit_error(subparsers):
+    parser_estimate_bit_err = subparsers.add_parser(
+        "estimate-bit-error",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+        help="Estimate bit errors.")
+    
+    parser_estimate_bit_err_req = parser_estimate_bit_err.add_argument_group("required inputs")
+    parser_estimate_bit_err_req.add_argument("--data-set-name",
+                                     type=str,
+                                     required=True,
+                                     help="MERFISH dataset name.")
+
+    parser_estimate_bit_err_req.add_argument("--pixel-traces-dir",
+                                     type=str,
+                                     required=True,
+                                     help="Directory that contains extracted pixel traces.")
+
+    parser_estimate_bit_err_req.add_argument("--output-name",
+                                     type=str,
+                                     required=True,
+                                     help="Output file name.")
 
 def str2bool(v):
      ## adapted from the answer by Maxim at
