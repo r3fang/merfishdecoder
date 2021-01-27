@@ -12,7 +12,6 @@ def parse_args():
     add_create_analysis(subparsers)
     add_registration(subparsers)
     add_preprocessing(subparsers)
-    add_predict_prob(subparsers)
     add_decoding(subparsers)
     add_train_psm(subparsers)
     add_extract_barcodes(subparsers)
@@ -68,19 +67,7 @@ def parse_args():
             zpos=args.zpos,
             warpedImagesName=args.warped_images_name,
             outputName=args.output_name,
-            highPassFilterSigma=args.high_pass_filter_sigma,
-            scaleFactorFile=args.scale_factor_file,
-            logTransform=args.log_transform)
-    elif args.command == "predict-prob":
-        from merfishdecoder.apps import run_predict_prob
-        run_predict_prob.run_job(
-            dataSetName=args.data_set_name,
-            fov=args.fov,
-            zpos=args.zpos,
-            processedImagesName=args.processed_images_name,
-            outputName=args.output_name,
-            modelName=args.model_name,
-            kernelSize=args.kernel_size)
+            highPassFilterSigma=args.high_pass_filter_sigma)                             
     elif args.command == "decode-images":
         from merfishdecoder.apps import run_decoding
         run_decoding.run_job(
@@ -100,6 +87,15 @@ def parse_args():
             decodedImagesDir=args.decoded_images_dir,
             outputName=args.output_name,
             zposNum=args.zpos_num)
+    elif args.command == "extract-pixel-traces":
+        from merfishdecoder.apps import run_extract_pixel_traces
+        run_extract_pixel_traces.run_job(
+            dataSetName=args.data_set_name,
+            fov=args.fov,
+            zpos=args.zpos,
+            processedImagesName=args.processed_images_name,
+            decodedImagesName=args.decoded_images_name,
+            outputName=args.output_name)
     elif args.command == "extract-barcodes":
         from merfishdecoder.apps import run_extract_barcodes
         run_extract_barcodes.run_job(
@@ -111,19 +107,6 @@ def parse_args():
             psmName=args.psm_name,
             barcodesPerCore=args.barcodes_per_core,
             maxCores=args.max_cores)
-    elif args.command == "extract-pixel-traces":
-        from merfishdecoder.apps import run_extract_pixel_traces
-        run_extract_pixel_traces.run_job(
-            dataSetName=args.data_set_name,
-            fov=args.fov,
-            zpos=args.zpos,
-            areaSizeThreshold=args.area_size_threshold,
-            magnitudeThreshold = args.magnitude_threshold,
-            distanceThreshold=args.distance_threshold,
-            extractedBarcodesName=args.extracted_barcodes_name,
-            processedImagesName=args.processed_images_name,
-            decodedImagesName=args.decoded_images_name,
-            outputName=args.output_name)
     elif args.command == "export-barcodes":
         from merfishdecoder.apps import run_export_barcodes
         run_export_barcodes.run_job(
@@ -344,59 +327,6 @@ def add_preprocessing(subparsers):
                                      default=3,
                                      help="Low pass sigma for high pass filter.")
 
-     parser_preprocessing_opt.add_argument("--scale-factor-file",
-                                     type=str,
-                                     default=None,
-                                     help="Normalization scaling factors.")
-
-     parser_preprocessing_opt.add_argument("--log-transform",
-                                     type=str2bool,
-                                     default=False,
-                                     help="Normalize image magnitude by log transform.")
-
-def add_predict_prob(subparsers):
-     parser_preprocessing = subparsers.add_parser(
-          "predict-prob",
-          formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-          help="Predict on-bit probability.")
-
-     parser_predict_prob_req = parser_preprocessing.add_argument_group("required inputs")
-     parser_predict_prob_req.add_argument("--data-set-name",
-                                          type=str,
-                                          required=True,
-                                          help="MERFISH dataset name.")
-
-     parser_predict_prob_req.add_argument("--fov",
-                                          type=int,
-                                          required=True,
-                                          help="Field of view index.")
-
-     parser_predict_prob_req.add_argument("--zpos",
-                                          type=float,
-                                          required=True,
-                                          help="Z positions in uM.")
-
-     parser_predict_prob_req.add_argument("--processed-images-name",
-                                          type=str,
-                                          required=True,
-                                          help="Processed images file name.")
-
-     parser_predict_prob_req.add_argument("--model-name",
-                                          type=str,
-                                          required=True,
-                                          help="Model file name.")
-
-     parser_predict_prob_req.add_argument("--output-name",
-                                          type=str,
-                                          required=True,
-                                          help="Output file name.")
-
-     parser_predict_prob_req.add_argument("--kernel-size",
-                                          type=int,
-                                          default=3,
-                                          required=True,
-                                          help="Kernel size.")
-
 def add_decoding(subparsers):
      parser_decoding = subparsers.add_parser(
           "decode-images",
@@ -510,12 +440,12 @@ def add_extract_barcodes(subparsers):
                                     required=True,
                                     help="Output barcode file name.")
 
-    parser_extract_barcodes_opt = parser_extract_barcodes.add_argument_group("optional inputs")
-    parser_extract_barcodes_opt.add_argument("--psm-name",
+    parser_extract_barcodes_req.add_argument("--psm-name",
                                     type=str,
-                                    default=None,
+                                    required=True,
                                     help="Pixel scoring machine name.")
 
+    parser_extract_barcodes_opt = parser_extract_barcodes.add_argument_group("optional inputs")
     parser_extract_barcodes_opt.add_argument("--barcodes-per-core",
                                     type=int,
                                     default=10,
@@ -526,11 +456,12 @@ def add_extract_barcodes(subparsers):
                                     default=10,
                                     help="Max number of cores for parallel computing.")
 
+
 def add_extract_pixel_traces(subparsers):
     parser_extract_pixel_traces= subparsers.add_parser(
          "extract-pixel-traces",
          formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-         help="Extract decoded pixel traces.")
+         help="Extract Barcodes.")
     
     parser_extract_pixel_traces_req = parser_extract_pixel_traces.add_argument_group("required inputs")
     parser_extract_pixel_traces_req.add_argument("--data-set-name",
@@ -548,11 +479,6 @@ def add_extract_pixel_traces(subparsers):
                                     required=True,
                                     help="Z positions in uM.")
 
-    parser_extract_pixel_traces_req.add_argument("--extracted-barcodes-name",
-                                    type=str,
-                                    required=True,
-                                    help="Extracted barcode file name.")
-
     parser_extract_pixel_traces_req.add_argument("--processed-images-name",
                                     type=str,
                                     required=True,
@@ -567,23 +493,7 @@ def add_extract_pixel_traces(subparsers):
                                     type=str,
                                     required=True,
                                     help="Output barcode file name.")
-    
-    parser_extract_pixel_traces_opt = parser_extract_pixel_traces.add_argument_group("optional inputs")
-    parser_extract_pixel_traces_opt.add_argument("--area-size-threshold",
-                                    type=int,
-                                    default=5,
-                                    help="Threshold for pixel number.")
 
-    parser_extract_pixel_traces_opt.add_argument("--distance-threshold",
-                                    type=float,
-                                    default=0.65,
-                                    help="Threshold for distance to assigned barcode.")
-
-    parser_extract_pixel_traces_opt.add_argument("--magnitude-threshold",
-                                    type=float,
-                                    default=0,
-                                    help="Threshold for pixel magnitude.")
-    
 def add_export_barcodes(subparsers):
     parser_export_barcodes= subparsers.add_parser(
          "export-barcodes",

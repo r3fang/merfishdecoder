@@ -68,22 +68,19 @@ def run_job(dataSetName: str = None,
     features = geo.read_file(
         featuresName) 
     
-    # assign global x and y
     features = features.assign(global_x = features.centroid.x)
     features = features.assign(global_y = features.centroid.y)
 
     # create the centroid for each feature
     features = pd.DataFrame([[ 
         features[features.name == fn].fov.mean(),
-        features[features.name == fn].x.mean(),
-        features[features.name == fn].y.mean(),
         features[features.name == fn].global_x.mean(),
         features[features.name == fn].global_y.mean(),
         fn,
         features[features.name == fn].area.sum(),
         features[features.name == fn].area.mean()]
         for fn in np.unique(features.name) ],
-        columns = ["fov", "x", "y", "global_x", \
+        columns = ["fov", "global_x", \
             "global_y", "name", "area", "avg_area"])
 
     # assign barcodes to cell
@@ -105,7 +102,6 @@ def run_job(dataSetName: str = None,
         (idx, count) = vectorList[key]
         if key in np.array(features.name):
             mat[list(features.name).index(key), idx.astype(int)] += count
-
     scipy.io.mmwrite(
         os.path.join(outputName, "matrix.mtx"),
         sparse.csr_matrix(mat.T.astype(np.float32)))
@@ -115,9 +111,8 @@ def run_job(dataSetName: str = None,
     dataSet.get_codebook().get_data()[["id", "name"]].to_csv(
         os.path.join(outputName, "genes.tsv"),
         index = False, header = False, sep='\t')
-    
     utilities.print_checkpoint("Done")
-
+    
 def main():
     dataSetName = sys.argv[1]
     barcodesName = sys.argv[2]
@@ -128,5 +123,4 @@ def main():
     
 if __name__ == "__main__":
     main()
-
 

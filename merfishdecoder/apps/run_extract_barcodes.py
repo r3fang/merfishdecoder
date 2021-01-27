@@ -14,7 +14,7 @@ def run_job(dataSetName: str = None,
             decodedImagesName: str = None,
             outputName: str = None,
             psmName: str = None,
-            barcodesPerCore: int = 10,
+            barcodesPerCore: int = 5,
             maxCores: int = 10):
     
     """
@@ -33,16 +33,18 @@ def run_job(dataSetName: str = None,
     maxCores: number of cores for parall processing.
              
     """
+            
+    # print input variables
+    print("====== input ======")
+    print("dataSetName: %s" % dataSetName)
+    print("fov: %d" % fov)
+    print("zpos: %f" % zpos)
+    print("decodedImagesName: %s" % decodedImagesName)
+    print("outputName: %s" % outputName)
+    print("barcodesPerCore: %s" % barcodesPerCore)
+    print("maxCores: %s" % maxCores)
+    print("==================\n")
     
-    # dataSetName = "MERFISH_test/data/"
-    # fov = 0
-    # zpos = 1.0
-    # decodedImagesName = "decodedImages/fov_0_zpos_1.0.npz"
-    # outputName = "decodedBarcodes/fov_0_zpos_1.0.h5"
-    # psmName = "pixel_score_machine.pkl"
-    # barcodesPerCore = 10
-    # maxCores = 10
-
     utilities.print_checkpoint("Extract Barcodes")
     utilities.print_checkpoint("Start")
     
@@ -54,10 +56,7 @@ def run_job(dataSetName: str = None,
     # create the folder
     os.makedirs(os.path.dirname(outputName),
                 exist_ok=True)
-    
-    # load the score machine
-    psm = pickle.load(open(psmName, "rb"))
-    
+
     # load decoding movie
     f = np.load(decodedImagesName)
     decodes = {
@@ -66,16 +65,22 @@ def run_job(dataSetName: str = None,
         "distanceImage": f["distanceImage"]
     }
     f.close()
-    
-    # calculate pixel probability
-    decodes["probabilityImage"] = \
-        decoder.calc_pixel_probability(
-            model = psm,
-            decodedImage = decodes["decodedImage"],
-            magnitudeImage = decodes["magnitudeImage"],
-            distanceImage = decodes["distanceImage"],
-            minProbability = 0.01)
-    
+        
+    # load the score machine
+    if psmName != None:
+        psm = pickle.load(open(psmName, "rb"))
+        # calculate pixel probability
+        decodes["probabilityImage"] = \
+            decoder.calc_pixel_probability(
+                model = psm,
+                decodedImage = decodes["decodedImage"],
+                magnitudeImage = decodes["magnitudeImage"],
+                distanceImage = decodes["distanceImage"],
+                minProbability = 0.01)
+    else:
+        decodes["probabilityImage"] = \
+            decodes["distanceImage"]
+
     # extract barcodes
     barcodes = barcoder.extract_barcodes(
         decodedImage = decodes["decodedImage"],
@@ -97,3 +102,25 @@ def run_job(dataSetName: str = None,
     
     utilities.print_checkpoint("Done")
     
+def main():
+    dataSetName = "190528_LPCDH1_DIV18_Map2TauAnkG"
+    fov = 76
+    zpos = 11.0
+    decodedImagesName = \
+        "decodedImages/fov_{fov:d}_zpos_{zpos:.1f}.npz".format(
+            fov = fov, zpos = zpos)
+    outputName = \
+        "extractedBarcodes/fov_{fov:d}_zpos_{zpos:.1f}.h5".format(
+            fov = fov, zpos = zpos)
+    psmName = None
+    barcodesPerCore = 1
+    maxCores = 10
+
+    run_job(dataSetName = dataSetName,
+            fov = fov,
+            zpos = zpos,
+            decodedImagesName = decodedImagesName,
+            outputName = outputName,
+            psmName = psmName,
+            barcodesPerCore = barcodesPerCore,
+            maxCores = maxCores)

@@ -71,7 +71,7 @@ def extract_barcodes(
             for j in np.arange(
                 0, decodedImage.max() + 1, 
                 barcodesPerCore) ]))
-
+    
     sa.delete(decodedImageFile)
     sa.delete(probabilityImageFile)
     sa.delete(distanceImageFile)
@@ -113,12 +113,33 @@ def extract_barcodes_by_indexes(
     
     if len(propertiesO) == 0:
         return pd.DataFrame(columns = 
-            ["x", "y", "barcode_id", 
-            "likelihood", "magnitude", 
-            "distance", "area"])
+            ["x", "y", 
+            "x_start", "x_end", 
+            "y_start", "y_end",
+            "barcode_id", 
+            "likelihood", 
+            "magnitude", 
+            "magnitude_min", 
+            "magnitude_max", 
+            "distance", 
+            "distance_min", 
+            "distance_max", 
+            "area"])
     else:
         barcodeIDs = np.array(
             [prop.min_intensity for prop in propertiesO])
+
+        xStart = np.array(
+            [prop.bbox[0] for prop in propertiesO])
+
+        xEnd = np.array(
+            [prop.bbox[2] for prop in propertiesO])
+
+        yStart = np.array(
+            [prop.bbox[1] for prop in propertiesO])
+
+        yEnd = np.array(
+            [prop.bbox[3] for prop in propertiesO])
         
         centroidCoords = np.array(
             [prop.weighted_centroid for prop in propertiesP])
@@ -129,27 +150,55 @@ def extract_barcodes_by_indexes(
             [ x.area for x in propertiesP ]).astype(np.float)
 
         liks = np.array([ 
-            -sum(np.log10(1 - x.intensity_image[x.image])) \
+            -sum(np.log10(1 - x.intensity_image[x.image] + 1e-15)) \
             for x in propertiesP ]
             ).astype(np.float32)
         
-        mags = np.array([ 
+        mags_mean = np.array([ 
             x.mean_intensity \
             for x in propertiesM ]
             ).astype(np.float32)
 
-        dists = np.array([ 
+        mags_min = np.array([ 
+            x.min_intensity \
+            for x in propertiesM ]
+            ).astype(np.float32)
+
+        mags_max = np.array([ 
+            x.max_intensity \
+            for x in propertiesM ]
+            ).astype(np.float32)
+
+        dists_mean = np.array([ 
             x.mean_intensity \
+            for x in propertiesD ]
+            ).astype(np.float32)
+
+        dists_min = np.array([ 
+            x.min_intensity \
+            for x in propertiesD ]
+            ).astype(np.float32)
+        
+        dists_max = np.array([ 
+            x.max_intensity \
             for x in propertiesD ]
             ).astype(np.float32)
         
         return pd.DataFrame({
             "x": centroids[:,0],
             "y": centroids[:,1],
+            "x_start": xStart.astype(np.float),
+            "x_end": xEnd.astype(np.float),
+            "y_start": yStart.astype(np.float),
+            "y_end": yEnd.astype(np.float),
             "barcode_id": barcodeIDs,
             "likelihood": liks,
-            "magnitude": mags,
-            "distance": dists,
+            "magnitude": mags_mean,
+            "magnitude_min": mags_min,
+            "magnitude_max": mags_max,
+            "distance": dists_mean,
+            "distance_min": dists_min,
+            "distance_max": dists_max,
             "area": areas})
 
 def calc_barcode_fdr(b, cb):

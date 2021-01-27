@@ -1,0 +1,5 @@
+#!/home/rfang/.conda/envs/md_env/bin/python
+from merfishdecoder.parser import parse_args
+
+if __name__ == '__main__':
+    parse_args()

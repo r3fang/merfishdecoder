@@ -122,7 +122,6 @@ def matlab_style_gauss2D(shape=(7,7),sigma=1):
     h = h.astype('float32')
     return h
 
-
 def print_checkpoint(message):
     """
     Print message and current time
@@ -131,7 +130,7 @@ def print_checkpoint(message):
     tabs = message.count("\t")
     print(("\t" * tabs) + time.asctime(time.localtime(time.time())) + "\n")
     sys.stdout.flush()
-
+    
 def print_warning(error_message=""):
     sys.stderr.write("Warning:\n" + error_message)
 

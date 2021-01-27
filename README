@@ -19,53 +19,96 @@ conda install -c conda-forge sharedarray
 pip install -e merfishdecoder
 printf 'DATA_HOME=gc://r3fang/MERFISH_raw_data/\nANALYSIS_HOME=/mnt/disks/sec\nPARAMETERS_HOME=~/merfishdecoder/merfish-parameters/' >~/.md_env
 
+#merfishdecoder create-analysis \
+#	--data-set-name=191010_LMN7_DIV18_Map2Tau \
+#	--codebook-name=hMTGE1_V11_codebook_4000.csv \
+#	--data-organization-name=hMTGdataorganization_48bit_6z.v11.csv \
+#	--microscope-parameter-name=MERFISH_MZ.json \
+#	--microscope-chromatic-aberration-name=MERFIFH_MZ_ca_profile_2020_10_01_.pkl \
+#	--position-name=20200303_hMTG_V11_4000gene_best_sample_positions.csv 
 
 
-ANALYSIS_DIR="/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/MERFISH_test/data/"
-FOV=0
 
-merfishdecoder create-analysis \
-	--data-set-name=20200303_hMTG_V11_4000gene_best_sample/data \
-	--codebook-name=hMTGE1_V11_codebook_4000.csv \
-	--data-organization-name=hMTGdataorganization_48bit_6z.v11.csv \
-	--microscope-parameter-name=MERFISH_MZ.json \
-	--microscope-chromatic-aberration-name=MERFIFH_MZ_ca_profile_2020_10_01_.pkl \
-	--position-name=20200303_hMTG_V11_4000gene_best_sample_positions.csv 
+ANALYSIS_DIR="/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/191010_LMN7_DIV18_Map2Tau"
+FOV=188
 
-#for ZPOS in 1.0 2.0 3.0 4.0 5.0 6.0; do
-#	merfishdecoder register-images \
-#		--data-set-name=MERFISH_test/data \
-#		--fov=$FOV \
-#		--zpos=$ZPOS \
-#		--output-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif \
-#		--register-drift=True \
-#		--ref-frame-index=0 \
-#		--high-pass-filter-sigma=3 \
-#		--register-color=True \
-#		--save-fiducials=False
-#done
+for ZPOS in 0.0  1.0  2.0  3.0  4.0  5.0  6.0  7.0  8.0  9.0 10.0 11.0
+do
+	merfishdecoder register-images \
+		--data-set-name=191010_LMN7_DIV18_Map2Tau \
+		--fov=$FOV \
+		--zpos=$ZPOS \
+		--output-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif \
+		--register-drift=True \
+		--ref-frame-index=0 \
+		--high-pass-filter-sigma=3 \
+		--register-color=False \
+		--save-fiducials=True
+	merfishdecoder process-images \
+		--data-set-name=191010_LMN7_DIV18_Map2Tau \
+		--fov=$FOV  \
+		--zpos=$ZPOS \
+		--warped-images-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif \
+		--output-name=$ANALYSIS_DIR/processedImages/fov_$FOV\_zpos_$ZPOS.npz \
+		--log-transform=False
+	merfishdecoder predict-prob \
+		--data-set-name=191010_LMN7_DIV18_Map2Tau \
+		--fov=$FOV  \
+		--zpos=$ZPOS \
+		--processed-images-name=$ANALYSIS_DIR/processedImages/fov_$FOV\_zpos_$ZPOS.npz \
+		--model-name=gmModelParam.v2.pkl \
+		--output-name=$ANALYSIS_DIR/probImages/fov_$FOV\_zpos_$ZPOS.npz \
+		--kernel-size=3
+done
 
-merfishdecoder register-images \
-	--data-set-name=MERFISH_test/data \
+merfishdecoder decode-images \
+	--data-set-name=191010_LMN7_DIV18_Map2Tau \
 	--fov=$FOV \
 	--zpos=$ZPOS \
-	--output-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif
+	--decoding-images-name=$ANALYSIS_DIR/processedImages/fov_$FOV\_zpos_$ZPOS.npz \
+	--output-name=$ANALYSIS_DIR/decodedImages/fov_$FOV\_zpos_$ZPOS.npz \
+	--border-size=80 \
+	--distance-threshold=0.65 \
+	--magnitude-threshold=1 \
+	--max-cores=10
 
-merfishdecoder register-images \
-	--data-set-name=$DATASET_NAME \
+merfishdecoder extract-barcodes \
+	--data-set-name=191010_LMN7_DIV18_Map2Tau \
 	--fov=$FOV \
 	--zpos=$ZPOS \
-	--output-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif
+	--decoded-images-name=$ANALYSIS_DIR/decodedImages/fov_$FOV\_zpos_$ZPOS.npz \
+	--output-name=decodedBarcodes/fov_$FOV\_zpos_$ZPOS.h5 \
+	--barcodes-per-core=10 \
+	--max-cores=10
+
+merfishdecoder extract-pixel-traces \
+	--data-set-name=191010_LMN7_DIV18_Map2Tau \
+	--fov=$FOV \
+	--zpos=$ZPOS \
+	--extracted-barcodes-name=$ANALYSIS_DIR/extractedBarcodes/fov_$FOV\_zpos_$ZPOS.h5 \
+	--processed-images-name=$ANALYSIS_DIR/processedImages/fov_$FOV\_zpos_$ZPOS.npz \
+	--decoded-images-name=$ANALYSIS_DIR/decodedImages/fov_$FOV\_zpos_$ZPOS.npz \
+	--output-name=$ANALYSIS_DIR/extractedPixelTraces/fov_$FOV\_zpos_$ZPOS.h5 \
+	--area-size-threshold=5 \
+	--distance-threshold=0.65 \
+	--magnitude-threshold=1
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 for ZPOS in 1.0 2.0 3.0 4.0 5.0 6.0; do
-	merfishdecoder process-images \
-		--data-set-name=MERFISH_test/data \
-		--fov=$FOV  \
-		--zpos=$ZPOS \
-		--warped-images-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif \
-		--output-name=$ANALYSIS_DIR/processedImages/fov_$FOV\_zpos_$ZPOS.npz
 done
 
 for ZPOS in 1.0 2.0 3.0 4.0 5.0 6.0; do

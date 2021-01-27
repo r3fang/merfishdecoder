@@ -14,6 +14,7 @@ import os
 from collections import Counter
 from numba import jit
 import gc
+from scipy import stats, special
 
 from merfishdecoder.data import codebook as cb
 from merfishdecoder.util import utilities
@@ -24,7 +25,10 @@ def decoding(obj: zplane.Zplane = None,
              borderSize: int = 80,
              distanceThreshold: float = 0.65,
              magnitudeThreshold: float = 0.0,
-             numCores: int = 1):
+             numCores: int = 1,
+             barcodeWeight: np.ndarray = None,
+             bitWeight: np.ndarray = None,
+             decodeMethod: str = "distance"):
 
     """
     Pixel-based decoding.
@@ -44,7 +48,8 @@ def decoding(obj: zplane.Zplane = None,
     distanceThreshold: the maximum distance between an assigned pixel
              and the nearest barcode. Pixels for which the nearest barcode
              is greater than distanceThreshold are left unassigned.
-
+    
+    numCores: number of threads for decoding
     """
 
     # remove the bordering pixels of decoding movie
@@ -55,39 +60,108 @@ def decoding(obj: zplane.Zplane = None,
         borderSize:(imageSize[0] - borderSize)] = 0
     movie = np.array([ x * (1 - borderImage) for x in movie ])
     
-    # normalized codebook matrix
-    codebookMatWeighted = obj.get_codebook().get_barcodes().astype(np.float32)
-    bitNum = codebookMatWeighted.sum(axis=1)[0]
-    codebookMatWeighted = codebookMatWeighted / \
-        cal_pixel_magnitude(codebookMatWeighted)[:, None]
-    
     # pixel-based decoding
-    decodeDict = pixel_based_decode(
-        movie = movie,
-        codebookMat = codebookMatWeighted,
-        distanceThreshold = distanceThreshold,
-        magnitudeThreshold = magnitudeThreshold,
-        oneBitThreshold = bitNum - 1,
-        numCores = numCores)
-    
+    if decodeMethod == "distance":
+        decodeDict = pixel_based_decode(
+            movie = movie,
+            codebookMat = obj.get_codebook().get_barcodes().astype(np.float32),
+            distanceThreshold = distanceThreshold,
+            magnitudeThreshold = magnitudeThreshold,
+            oneBitThreshold = bitNum - 1,
+            numCores = numCores)
+    elif decodeMethod == "cross_entropy":
+        decodeDict = pixel_based_decode_cross_entropy(
+             movie = movie,
+             codebookMat = obj.get_codebook().get_barcodes().astype(np.float32),
+             bitWeight = bitWeight,
+             magnitudeThreshold = magnitudeThreshold)
+    elif decodeMethod == "joint_prob":
+        decodeDict = pixel_based_decode_joint_prob(
+            movie  = movie,
+            codebookMat = obj.get_codebook().get_barcodes().astype(np.float32),
+            barcodeWeight = barcodeWeight,
+            magnitudeThreshold = magnitudeThreshold)
+
     return decodeDict
 
-@jit(nopython=True)
-def cal_pixel_magnitude(x):
+def pixel_based_decode_joint_prob(
+    movie: np.ndarray,
+    codebookMat: np.ndarray,
+    barcodeWeight: np.ndarray,
+    magnitudeThreshold: float = 1.0
+    ) -> dict:
+    
+    magnitudeImage = movie.sum(axis=0)
+    rows, cols = np.asarray(
+        magnitudeImage >= magnitudeThreshold).nonzero()
+    
+    r = codebookMat.copy()
+    w = barcodeWeight.copy() + 1e-15
+    
+    eps = 1e-15
+    y_1 = np.empty(shape=(r.shape[1], rows.shape[0]), dtype=np.float)
+    y_0 = np.empty_like(y_1, dtype=np.float)
+    for t in range(movie.shape[0]):
+    	t1 = movie[t]
+    	t2 = 1 - t1
+    	t1[t1 == 0] = eps
+    	t2[t2 == 0] = eps
+    	y_1[t] = np.log(t1[rows, cols])
+    	y_0[t] = np.log(t2[rows, cols])
+    ll = np.matmul(r, y_1) + np.matmul(1 - r, y_0)
+    logw = np.log(w / w.sum())
+    logp = np.repeat(logw, ll.shape[1]).reshape(ll.shape) + ll
+    prob = np.exp(logp - special.logsumexp(logp, axis=0))
+    assigned_rna = np.argmax(prob, axis=0)
+    assigned_rna_p = np.max(prob, axis=0)
+    
+    decodedImage = - np.ones(movie.shape[1:])
+    probabilityImage = np.zeros(movie.shape[1:])
 
-    """
-    Calculate magnitude for pixel trace x 
-    """
+    decodedImage[rows, cols] = assigned_rna
+    probabilityImage[rows, cols] = assigned_rna_p
 
-    pixelMagnitudes = np.array([ np.linalg.norm(x[i]) \
-        for i in range(x.shape[0]) ], dtype=np.float32)
-    pixelMagnitudes[pixelMagnitudes == 0] = 1 
-    return(pixelMagnitudes)  
+    return dict({
+        "decodedImage": decodedImage,
+        "magnitudeImage": magnitudeImage,
+        "distanceImage": probabilityImage,
+        "probabilityImage": probabilityImage})
 
-def kneighbors_func(x, n):
-    return(n.kneighbors(
-        x, return_distance=True))
+def pixel_based_decode_cross_entropy(
+    movie: np.ndarray,
+    codebookMat: np.ndarray,
+    bitWeight: np.ndarray,
+    magnitudeThreshold: float = 1.0
+    ) -> dict:
 
+    eps = 1e-15
+    movie[movie == 1] = 1 - eps
+    movie[movie == 0] = eps
+    
+    magnitudeImage = movie.sum(axis=0)
+    rows, cols = np.asarray(
+        magnitudeImage >= magnitudeThreshold).nonzero()
+        
+    ## 48 by col_num
+    y_pin_s2d = movie[:, rows, cols]
+    log_p = np.log(y_pin_s2d)
+    log_1_p = np.log(1 - y_pin_s2d)
+    ce = -(np.matmul(codebookMat, log_p) + np.matmul(1 - codebookMat, log_1_p))
+    
+    assigned_rna = np.argmin(ce, axis = 0)
+    assigned_rna_ce = np.min(ce, axis=0)
+    
+    decodedImage = - np.ones(movie.shape[1:])
+    probabilityImage = np.zeros(movie.shape[1:])
+    decodedImage[rows, cols] = assigned_rna
+    probabilityImage[rows, cols] = assigned_rna_ce
+
+    return dict({
+        "decodedImage": decodedImage,
+        "magnitudeImage": magnitudeImage,
+        "distanceImage": probabilityImage,
+        "probabilityImage": probabilityImage})
+    
 def pixel_based_decode(
     movie: np.ndarray,
     codebookMat: np.ndarray,
@@ -132,6 +206,10 @@ def pixel_based_decode(
             
     """
     
+    bitNum = codebookMat.sum(axis=1)[0]
+    codebookMatWeighted = codebookMat[:,:] / \
+        cal_pixel_magnitude(codebookMat)[:, None]
+    
     imageSize = movie.shape[1:]
     
     pixelTraces = np.reshape(
@@ -170,7 +248,7 @@ def pixel_based_decode(
         n_neighbors = 1, 
         algorithm = 'ball_tree')
     
-    neighbors.fit(codebookMat)
+    neighbors.fit(codebookMatWeighted)
     
     if numCores > 1:
         normalizedPixelTracesSplits = np.array_split(
@@ -249,3 +327,18 @@ def calc_pixel_probability(
     probabilityImage[decodedImage > -1] = p
     return probabilityImage
 
+@jit(nopython=True)
+def cal_pixel_magnitude(x):
+
+    """
+    Calculate magnitude for pixel trace x 
+    """
+
+    pixelMagnitudes = np.array([ np.linalg.norm(x[i]) \
+        for i in range(x.shape[0]) ], dtype=np.float32)
+    pixelMagnitudes[pixelMagnitudes == 0] = 1 
+    return(pixelMagnitudes)  
+
+def kneighbors_func(x, n):
+    return(n.kneighbors(
+        x, return_distance=True))

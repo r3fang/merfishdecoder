@@ -1,0 +1,10 @@
+README
+setup.py
+bin/merfishdecoder
+merfishdecoder/__init__.py
+merfishdecoder/parser.py
+merfishdecoder.egg-info/PKG-INFO
+merfishdecoder.egg-info/SOURCES.txt
+merfishdecoder.egg-info/dependency_links.txt
+merfishdecoder.egg-info/requires.txt
+merfishdecoder.egg-info/top_level.txt
