@@ -22,7 +22,7 @@ from merfishdecoder.core import zplane
 
 def decoding(obj: zplane.Zplane = None,
              movie: np.ndarray = None,
-             borderSize: int = 80,
+             borderSize: int = 100,
              distanceThreshold: float = 0.65,
              magnitudeThreshold: float = 0.0,
              numCores: int = 1,
@@ -67,7 +67,7 @@ def decoding(obj: zplane.Zplane = None,
             codebookMat = obj.get_codebook().get_barcodes().astype(np.float32),
             distanceThreshold = distanceThreshold,
             magnitudeThreshold = magnitudeThreshold,
-            oneBitThreshold = bitNum - 1,
+            oneBitThreshold = 1,
             numCores = numCores)
     elif decodeMethod == "cross_entropy":
         decodeDict = pixel_based_decode_cross_entropy(
@@ -96,7 +96,10 @@ def pixel_based_decode_joint_prob(
         magnitudeImage >= magnitudeThreshold).nonzero()
     
     r = codebookMat.copy()
-    w = barcodeWeight.copy() + 1e-15
+    w = barcodeWeight.copy()
+    
+    w = np.insert(w, obj=0, values=np.median(w), axis=0)
+    r = np.insert(r, obj=0, values=np.zeros(r.shape[1]), axis=0)
     
     eps = 1e-15
     y_1 = np.empty(shape=(r.shape[1], rows.shape[0]), dtype=np.float)
@@ -112,10 +115,10 @@ def pixel_based_decode_joint_prob(
     logw = np.log(w / w.sum())
     logp = np.repeat(logw, ll.shape[1]).reshape(ll.shape) + ll
     prob = np.exp(logp - special.logsumexp(logp, axis=0))
-    assigned_rna = np.argmax(prob, axis=0)
+    assigned_rna = np.argmax(prob, axis=0) - 1
     assigned_rna_p = np.max(prob, axis=0)
     
-    decodedImage = - np.ones(movie.shape[1:])
+    decodedImage = -np.ones(movie.shape[1:])
     probabilityImage = np.zeros(movie.shape[1:])
 
     decodedImage[rows, cols] = assigned_rna
@@ -168,7 +171,7 @@ def pixel_based_decode(
     numCores: int = 1,
     distanceThreshold: float = 0.65,
     magnitudeThreshold: float = 0,
-    oneBitThreshold: int = 3
+    oneBitThreshold: int = 1
     ) -> dict:
   
     """
@@ -232,7 +235,9 @@ def pixel_based_decode(
         return dict({
             "decodedImage": np.empty(0),
             "magnitudeImage": np.empty(0),
-            "distanceImage": np.empty(0)})
+            "distanceImage": np.empty(0),
+            "probabilityImage": np.empty(0)
+        })
 
     pixelTraces = pixelTraces[pixelIndexes]
     pixelMagnitudes = pixelMagnitudes[pixelIndexes]
@@ -310,7 +315,8 @@ def pixel_based_decode(
     return dict({
         "decodedImage": decodedImage,
         "magnitudeImage": magnitudeImage,
-        "distanceImage": distanceImage})
+        "distanceImage": distanceImage,
+        "probabilityImage": distanceImage })
 
 def calc_pixel_probability(
     model,

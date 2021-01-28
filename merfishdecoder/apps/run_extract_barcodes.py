@@ -103,9 +103,9 @@ def run_job(dataSetName: str = None,
     utilities.print_checkpoint("Done")
     
 def main():
-    dataSetName = "190528_LPCDH1_DIV18_Map2TauAnkG"
-    fov = 76
-    zpos = 11.0
+    dataSetName = "191010_LMN7_DIV18_Map2Tau"
+    fov = 118
+    zpos = 0.0
     decodedImagesName = \
         "decodedImages/fov_{fov:d}_zpos_{zpos:.1f}.npz".format(
             fov = fov, zpos = zpos)

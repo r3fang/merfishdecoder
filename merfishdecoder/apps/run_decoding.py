@@ -91,6 +91,7 @@ def run_job(dataSetName: str = None,
             outputName: str = None,
             maxCores: int = 5,
             borderSize: int = 80,
+            minProb: float = 0.1,
             distanceThreshold: float = 0.2,
             magnitudeThreshold: float = 1.0,
             decodeMethod: str = "distance"):
@@ -105,6 +106,7 @@ def run_job(dataSetName: str = None,
     print("decodingImagesName: %s" % decodingImagesName)
     print("outputName: %s" % outputName)
     print("borderSize: %d" % borderSize)
+    print("minProb: %s" % minProb)
     print("distanceThreshold: %s" % distanceThreshold)
     print("magnitudeThreshold: %r" % magnitudeThreshold)
     print("decodeMethod: %r" % decodeMethod)
@@ -141,6 +143,11 @@ def run_job(dataSetName: str = None,
     decodingImages = np.load(decodingImagesName)
     decodingImages = decodingImages["arr_0"]
     
+    # filter pixels with probaility less than minProb
+    if decodeMethod != "distance":
+        for i in range(decodingImages.shape[0]):
+            decodingImages[i][decodingImages[i] <= minProb] = 0
+    
     decodedImages = decoder.decoding(obj = zp,
                                      movie = decodingImages,
                                      borderSize = borderSize,
@@ -174,6 +181,7 @@ def main():
             fov = fov, zpos = zpos)
     maxCores = 1
     borderSize = 100
+    minProb = 0.1
     magnitudeThreshold = 2.0
     distanceThreshold = 0.65
     decodeMethod = "joint_prob"
@@ -185,6 +193,7 @@ def main():
         barcodeWeightName = barcodeWeightName,
         decodingImagesName = decodingImagesName,
         outputName = outputName,
+        minProb = minProb,
         maxCores = maxCores,
         borderSize = borderSize,
         magnitudeThreshold = magnitudeThreshold,
