@@ -114,6 +114,7 @@ def extract_barcodes_by_indexes(
     if len(propertiesO) == 0:
         return pd.DataFrame(columns = 
             ["x", "y", 
+            "x_max", "y_max",
             "x_start", "x_end", 
             "y_start", "y_end",
             "barcode_id", 
@@ -143,9 +144,13 @@ def extract_barcodes_by_indexes(
         
         centroidCoords = np.array(
             [prop.weighted_centroid for prop in propertiesP])
-
         centroids = centroidCoords[:, [1, 0]]              
-
+        
+        maxCoords = np.array(
+            [ prop.coords[m[prop.coords[:,0], prop.coords[:,1]].argmax()] \
+            for prop in propertiesP ]).astype(np.float64)
+        maxCoords = maxCoords[:, [1, 0]]
+        
         areas = np.array(
             [ x.area for x in propertiesP ]).astype(np.float)
 
@@ -185,8 +190,10 @@ def extract_barcodes_by_indexes(
             ).astype(np.float32)
         
         return pd.DataFrame({
-            "x": centroids[:,0],
-            "y": centroids[:,1],
+            "x": centroids[:,0].astype(np.float),
+            "y": centroids[:,1].astype(np.float),
+            "x_max": maxCoords[:,0].astype(np.float),
+            "y_max": maxCoords[:,1].astype(np.float),
             "x_start": xStart.astype(np.float),
             "x_end": xEnd.astype(np.float),
             "y_start": yStart.astype(np.float),

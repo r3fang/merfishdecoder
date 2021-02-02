@@ -28,38 +28,39 @@ printf 'DATA_HOME=gc://r3fang/MERFISH_raw_data/\nANALYSIS_HOME=/mnt/disks/sec\nP
 #	--position-name=20200303_hMTG_V11_4000gene_best_sample_positions.csv 
 
 
+merfishdecoder register-images \
+	--data-set-name=191010_LMN7_DIV18_Map2Tau \
+	--fov=$FOV \
+	--zpos=$ZPOS \
+	--output-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif \
+	--register-drift=True \
+	--ref-frame-index=0 \
+	--high-pass-filter-sigma=3 \
+	--register-color=False \
+	--save-fiducials=True
+merfishdecoder process-images \
+	--data-set-name=191010_LMN7_DIV18_Map2Tau \
+	--fov=$FOV  \
+	--zpos=$ZPOS \
+	--warped-images-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif \
+	--output-name=$ANALYSIS_DIR/processedImages/fov_$FOV\_zpos_$ZPOS.npz \
+	--log-transform=False
 
-ANALYSIS_DIR="/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/20200303_hMTG_V11_4000gene_best_sample/data"
-FOV=782
 
-for ZPOS in 1.0  2.0  3.0  4.0  5.0  6.0
+ANALYSIS_DIR="/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/191010_LMN7_DIV18_Map2Tau"
+FOV=188
+
+for ZPOS in 0.0 1.0 2.0  3.0  4.0  5.0  6.0 7.0 8.0 9.0 10.0 11.0
 do
-	merfishdecoder register-images \
-		--data-set-name=20200303_hMTG_V11_4000gene_best_sample/data \
-		--fov=$FOV \
-		--zpos=$ZPOS \
-		--output-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif \
-		--register-drift=True \
-		--ref-frame-index=0 \
-		--high-pass-filter-sigma=3 \
-		--register-color=False \
-		--save-fiducials=True
-	merfishdecoder process-images \
-		--data-set-name=20200303_hMTG_V11_4000gene_best_sample/data \
-		--fov=$FOV  \
-		--zpos=$ZPOS \
-		--warped-images-name=$ANALYSIS_DIR/warpedImages/fov_$FOV\_zpos_$ZPOS.tif \
-		--output-name=$ANALYSIS_DIR/processedImages/fov_$FOV\_zpos_$ZPOS.npz \
-		--log-transform=False
 	merfishdecoder decode-images \
-		--data-set-name=20200303_hMTG_V11_4000gene_best_sample/data \
+		--data-set-name=191010_LMN7_DIV18_Map2Tau \
 		--fov=$FOV \
 		--zpos=$ZPOS \
 		--decoding-images-name=$ANALYSIS_DIR/processedImages/fov_$FOV\_zpos_$ZPOS.npz \
 		--output-name=$ANALYSIS_DIR/decodedImages/fov_$FOV\_zpos_$ZPOS.npz \
 		--border-size=80 \
-		--distance-threshold=0.65 \
-		--magnitude-threshold=1 \
+		--distance-threshold=0.70 \
+		--magnitude-threshold=1.0 \
 		--max-cores=10
 done
 

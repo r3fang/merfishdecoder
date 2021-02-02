@@ -91,7 +91,7 @@ def run_job(dataSetName: str = None,
         (barcodes.magnitude >= magnitudeThreshold) & \
         (barcodes.distance <= distanceThreshold)
     ]
-
+    
     # create decoded image
     maskImage = np.zeros(zp.get_image_size())
     for index, row in barcodes.iterrows():
@@ -135,15 +135,15 @@ def run_job(dataSetName: str = None,
 
 def main():
     dataSetName = "191010_LMN7_DIV18_Map2Tau"
-    fov = 188
-    zpos = 5.0
+    fov = 222
+    zpos = 9.0
     areaSizeThreshold = 5
     magnitudeThreshold = 0
     distanceThreshold = 0.65
-    extractedBarcodesName = "extractedBarcodes/fov_188_zpos_5.0.h5"
-    processedImagesName = "processedImages/fov_188_zpos_5.0.npz"
-    decodedImagesName = "decodedImages/fov_188_zpos_5.0.npz"
-    outputName = "extractedPixelTraces/fov_188_zpos_5.0.h5"
+    extractedBarcodesName = "extractedBarcodes/fov_%d_zpos_%0.1f.h5" % (fov, zpos)
+    processedImagesName = "processedImages/fov_%d_zpos_%0.1f.npz" % (fov, zpos)
+    decodedImagesName = "decodedImages/fov_%d_zpos_%0.1f.npz" % (fov, zpos)
+    outputName = "extractedPixelTraces/fov_%d_zpos_%0.1f.h5" % (fov, zpos)
 
     run_job(dataSetName = dataSetName,
             fov = fov,
