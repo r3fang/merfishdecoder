@@ -6,6 +6,7 @@ import pickle
 import pandas as pd
 import numpy as np
 from sklearn.mixture import GaussianMixture
+from scipy.stats import norm
 import matplotlib.pyplot as plt 
 from sklearn.linear_model import LogisticRegression
 
@@ -41,21 +42,29 @@ def run_job(dataSetName: str = None,
     
     # change to work directory
     os.chdir(dataSet.analysisPath)
-    
+
     # list the extracted pixels
-    pixelTraces = pd.concat([ 
+    barcodes = pd.concat([ 
         pd.read_hdf(fn, key="barcodes") \
         for fn in glob.glob(workDir + "/fov_188*.h5") ],
         axis = 0)
     
     # filter decoded pixels
-    pixelTraces = pixelTraces[
-        pixelTraces.area >= areaThreshold ]
+    barcodes = barcodes[
+        barcodes.area >= areaThreshold ]
     
     # estimate foreground
     cb = dataSet.get_codebook()
-    cbMat = cb.get_barcodes()[pixelTraces.barcode_id,:]
-    pixelTracesExp = np.array(pixelTraces[cb.get_bit_names()])
+    cbMat = cb.get_barcodes()[barcodes.barcode_id.astype(int),:]
+    pixelTracesExp = np.array(barcodes[cb.get_bit_names()])
+
+    pixelOneBit = pixelTracesExp[cbMat > 0]
+    pixelOneBit = np.log10(pixelOneBit[pixelOneBit > 0] + 1)
+    
+    mu, std = norm.fit(pixelOneBit)
+    
+    
+    
     modelDict = collections.defaultdict()
     plt.clf()
     for i in range(cb.get_bit_count()):
