@@ -62,7 +62,7 @@ def decoding(obj: zplane.Zplane = None,
     
     # pixel-based decoding
     if decodeMethod == "distance":
-        decodeDict = pixel_based_decode(
+        decodeDict = pixel_based_decode_distance(
             movie = movie,
             codebookMat = obj.get_codebook().get_barcodes().astype(np.float32),
             distanceThreshold = distanceThreshold,
@@ -165,7 +165,7 @@ def pixel_based_decode_cross_entropy(
         "distanceImage": probabilityImage,
         "probabilityImage": probabilityImage})
     
-def pixel_based_decode(
+def pixel_based_decode_distance(
     movie: np.ndarray,
     codebookMat: np.ndarray,
     numCores: int = 1,

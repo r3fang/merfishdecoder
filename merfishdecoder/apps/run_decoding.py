@@ -111,7 +111,7 @@ def run_job(dataSetName: str = None,
     print("magnitudeThreshold: %r" % magnitudeThreshold)
     print("decodeMethod: %r" % decodeMethod)
     print("==================\n")
-    
+
     utilities.print_checkpoint("Decode MERFISH images")
     utilities.print_checkpoint("Start")
     

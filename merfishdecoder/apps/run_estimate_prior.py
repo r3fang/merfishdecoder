@@ -44,13 +44,13 @@ def run_job(dataSetName: str = None,
     
     # list the extracted pixels
     pixelTraces = pd.concat([ 
-        pd.read_hdf(fn) \
-        for fn in glob.glob(workDir + "/*.h5") ],
+        pd.read_hdf(fn, key="barcodes") \
+        for fn in glob.glob(workDir + "/fov_188*.h5") ],
         axis = 0)
     
     # filter decoded pixels
     pixelTraces = pixelTraces[
-        pixelTraces.distance <= distanceThreshold]
+        pixelTraces.area >= areaThreshold ]
     
     # estimate foreground
     cb = dataSet.get_codebook()

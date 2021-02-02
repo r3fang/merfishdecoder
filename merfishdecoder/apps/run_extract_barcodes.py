@@ -1,4 +1,5 @@
 import os
+import sys
 import pickle
 import pandas as pd
 import numpy as np
@@ -199,33 +200,24 @@ def run_job(dataSetName: str = None,
     barcodes = barcodes.assign(z = \
         zp._dataSet.get_z_positions().index(zpos))
     
-    # find max intensity position
     
     # add intensity traces
-    decodingImages[:,barcodes.y.astype(int), barcodes.x.astype(int)]
+    pixelTraces = decodingImages[:,barcodes.y.astype(int), barcodes.x.astype(int)].T
+    pixelTraces = pd.DataFrame(pixelTraces, columns =  zp.get_bit_name())
     
-    pixelTraces = procesedImages[:,idx[0], idx[1]].T
-    barcode_id = decodedImages["decodedImage"][idx[0], idx[1]]
-    distances = decodedImages["distanceImage"][idx[0], idx[1]]
-    magnitudes = decodedImages["magnitudeImage"][idx[0], idx[1]]
-    dat = pd.DataFrame(pixelTraces, columns =  zp.get_bit_name())
-    dat = dat.assign(barcode_id = barcode_id)
-    dat = dat.assign(distance = distances)
-    dat = dat.assign(magnitudes = magnitudes)
-    dat = dat.assign(x = idx[0])
-    dat = dat.assign(y = idx[1])
-    
+    barcodes = pd.concat([barcodes, pixelTraces], axis=1)
+
     # save barcodes
     barcodes.to_hdf(outputName,
                     key = "barcodes")
-    
+
     utilities.print_checkpoint("Done")
 
     
 def main():
     dataSetName = "191010_LMN7_DIV18_Map2Tau"
-    fov = 420
-    zpos = 1.0
+    fov = 188
+    zpos = 0.0
     decodingImagesName = \
         "processedImages/fov_{fov:d}_zpos_{zpos:.1f}.npz".format(
             fov = fov, zpos = zpos)
@@ -238,7 +230,14 @@ def main():
     psmName = None
     barcodesPerCore = 1
     maxCores = 10
-
+    
+    dataSetName = sys.argv[1]
+    fov = int(sys.argv[2])
+    zpos = float(sys.argv[3])
+    decodingImagesName = sys.argv[4]
+    decodedImagesName = sys.argv[5]
+    outputName = sys.argv[6]
+    
     run_job(dataSetName = dataSetName,
             fov = fov,
             zpos = zpos,
@@ -248,3 +247,6 @@ def main():
             psmName = psmName,
             barcodesPerCore = barcodesPerCore,
             maxCores = maxCores)
+
+if __name__ == "__main__":
+    main()

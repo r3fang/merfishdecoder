@@ -70,7 +70,8 @@ def extract_barcodes(
             np.arange(j, j + barcodesPerCore)) \
             for j in np.arange(
                 0, decodedImage.max() + 1, 
-                barcodesPerCore) ]))
+                barcodesPerCore) ]), 
+                ignore_index = True)
     
     sa.delete(decodedImageFile)
     sa.delete(probabilityImageFile)

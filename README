@@ -50,21 +50,26 @@ merfishdecoder process-images \
 ANALYSIS_DIR="/mnt/NAS/Fang/Analysis/MERFISH/merfish_analysis/191010_LMN7_DIV18_Map2Tau"
 FOV=188
 
+merfishdecoder decode-images \
+	--data-set-name=191010_LMN7_DIV18_Map2Tau \
+	--fov=$FOV \
+	--zpos=$ZPOS \
+	--decoding-images-name=$ANALYSIS_DIR/processedImages/fov_$FOV\_zpos_$ZPOS.npz \
+	--output-name=$ANALYSIS_DIR/decodedImages/fov_$FOV\_zpos_$ZPOS.npz \
+	--border-size=80 \
+	--distance-threshold=0.65 \
+	--magnitude-threshold=1.0 \
+	--max-cores=10
+
 for ZPOS in 0.0 1.0 2.0  3.0  4.0  5.0  6.0 7.0 8.0 9.0 10.0 11.0
 do
-	merfishdecoder decode-images \
-		--data-set-name=191010_LMN7_DIV18_Map2Tau \
-		--fov=$FOV \
-		--zpos=$ZPOS \
-		--decoding-images-name=$ANALYSIS_DIR/processedImages/fov_$FOV\_zpos_$ZPOS.npz \
-		--output-name=$ANALYSIS_DIR/decodedImages/fov_$FOV\_zpos_$ZPOS.npz \
-		--border-size=80 \
-		--distance-threshold=0.70 \
-		--magnitude-threshold=1.0 \
-		--max-cores=10
+	python /home/rfang/merfishdecoder/merfishdecoder/apps/run_extract_barcodes.py \
+		191010_LMN7_DIV18_Map2Tau \
+		$FOV $ZPOS \
+		$ANALYSIS_DIR/processedImages/fov_$FOV\_zpos_$ZPOS.npz \
+		$ANALYSIS_DIR/decodedImages/fov_$FOV\_zpos_$ZPOS.npz \
+		$ANALYSIS_DIR/extractedBarcodes/fov_$FOV\_zpos_$ZPOS.h5
 done
-
-
 
 
 merfishdecoder predict-prob \
