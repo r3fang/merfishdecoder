@@ -1,3 +1,13 @@
+#!/usr/bin/python
+# ----------------------------------------------------------------------------------------
+# An application to filter identified barcodes.
+# ----------------------------------------------------------------------------------------
+# Rongxin Fang
+# latest update: 04/14/21
+# r4fang@gmail.com
+# ----------------------------------------------------------------------------------------
+
+import sys
 import os
 import pickle
 import pandas as pd
@@ -78,3 +88,23 @@ def run_job(dataSetName: str = None,
             key = fov);
 
     utilities.print_checkpoint("Done")
+
+def main():
+	dataSetName = sys.argv[1]
+	exportedBarcodesName = sys.argv[2]
+	outputName = sys.argv[3]
+	fovNum = int(sys.argv[4])
+	misIdentificationRate = float(sys.argv[5])	
+	keepBlankBarcodes = bool(sys.argv[6])
+	minAreaSize = int(sys.argv[7])
+
+	run_job(dataSetName = dataSetName,
+		exportedBarcodesName = exportedBarcodesName,
+        outputName = outputName,
+        fovNum=fovNum,
+        misIdentificationRate = misIdentificationRate,
+        keepBlankBarcodes = keepBlankBarcodes,
+        minAreaSize = minAreaSize)
+	
+if __name__ == "__main__:
+	main()

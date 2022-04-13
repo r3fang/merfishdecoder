@@ -12,6 +12,27 @@ from merfishdecoder.util import imagefilter
 from merfishdecoder.util import utilities
 from merfishdecoder.util import decoder
 from merfishdecoder.util import barcoder
+import cv2
+
+def low_pass_filter(obj: zplane.Zplane = None, 
+                         frameNames: list = None,
+                         sigma = 1,
+                         windowSize = 3
+                         ) -> zplane.Zplane:
+    """
+    Correct the intensity difference between color channels
+               using existed scale factor profiles
+    """
+    
+    frameNames = obj.get_readout_name() \
+        if frameNames is None else frameNames
+    for fn in frameNames:
+        obj._frames[fn]._img = cv2.GaussianBlur(
+            obj._frames[fn]._img.astype(np.float32),
+            (windowSize, windowSize),
+            sigma,
+            borderType = cv2.BORDER_REPLICATE)
+    return obj
 
 def main():
     parser = argparse.ArgumentParser(description='MERFISH Analysis.')
@@ -139,13 +160,24 @@ def main():
     scaleFactors = preprocessing.estimate_scale_factors(
         obj = zp,
         frameNames = zp.get_bit_name())
-
+    medianValue = np.median([scaleFactors[key] for key in scaleFactors])
+    scaleFactors = dict([ (key, value / medianValue) \
+            for key, value in scaleFactors.items() ])
+    
     # normalize image intensity
     zp = preprocessing.scale_readout_images(
         obj = zp,
         frameNames = zp.get_bit_name(),
         scaleFactors = scaleFactors)
+   
+    # add low pass filter
+    utilities.print_checkpoint("Low-pass Filtering")
+    zp = low_pass_filter(
+            obj = zp,
+            frameNames = zp.get_bit_name(),
+            sigma = 1, windowSize = 3)
 
+    # pixel-based decoding
     utilities.print_checkpoint("Pixel-based Decoding")
     decodedImages = decoder.decoding(
              obj = zp,

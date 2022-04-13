@@ -67,7 +67,8 @@ def parse_args():
             zpos=args.zpos,
             warpedImagesName=args.warped_images_name,
             outputName=args.output_name,
-            highPassFilterSigma=args.high_pass_filter_sigma)                             
+            highPassFilterSigma=args.high_pass_filter_sigma,
+            lowPassFilterSigma=args.low_pass_filter_sigma)                             
     elif args.command == "decode-images":
         from merfishdecoder.apps import run_decoding
         run_decoding.run_job(
@@ -326,6 +327,10 @@ def add_preprocessing(subparsers):
                                      type=int,
                                      default=3,
                                      help="Low pass sigma for high pass filter.")
+     parser_preprocessing_opt.add_argument("--low-pass-filter-sigma",
+                                     type=int,
+                                     default=1,
+                                     help="High pass sigma for low pass filter.")
 
 def add_decoding(subparsers):
      parser_decoding = subparsers.add_parser(

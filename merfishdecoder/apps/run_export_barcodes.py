@@ -1,3 +1,14 @@
+#!/usr/bin/python
+# ----------------------------------------------------------------------------------------
+# An application to export identified barcodes for all FOVs.
+# ----------------------------------------------------------------------------------------
+# Rongxin Fang
+# latest update: 04/14/21
+# r4fang@gmail.com
+# ----------------------------------------------------------------------------------------
+
+
+import sys
 import os
 import pickle
 import pandas as pd
@@ -63,3 +74,15 @@ def run_job(dataSetName: str = None,
 
     utilities.print_checkpoint("Done")
 
+def main():
+	dataSetName = sys.argv[1]
+	decodedBarcodesDir = sys.argv[2]
+	outputName = sys.argv[3]
+	
+	run_job(
+		dataSetName = dataSetName,
+		decodedBarcodesDir = decodedBarcodesDir,
+		outputName = outputName)	
+
+if __name__ == "__main__":
+	main()

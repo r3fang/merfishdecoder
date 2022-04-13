@@ -3,6 +3,27 @@ import numpy as np
 
 from merfishdecoder.core import zplane
 
+
+def low_pass_filter(obj: zplane.Zplane = None, 
+                         frameNames: list = None,
+                         sigma = 1,
+                         windowSize = 3
+                         ) -> zplane.Zplane:
+    """
+    Correct the intensity difference between color channels
+               using existed scale factor profiles
+    """
+    
+    frameNames = obj.get_readout_name() \
+        if frameNames is None else frameNames
+    for fn in frameNames:
+        obj._frames[fn]._img = cv2.GaussianBlur(
+            obj._frames[fn]._img.astype(np.float32),
+            (windowSize, windowSize),
+            sigma,
+            borderType = cv2.BORDER_REPLICATE)
+    return obj
+
 def high_pass_filter(obj: zplane.Zplane = None,
                      frameNames: list = None,
                      readoutImage: bool = True,

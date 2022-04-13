@@ -13,13 +13,15 @@ def run_job(dataSetName: str = None,
             zpos: float = None,
             warpedImagesName: str = None,
             outputName: str = None,
-            highPassFilterSigma: int = 3):
+            highPassFilterSigma: int = 3,
+            lowPassFilterSigma: int = 1):
 
     """
     Preprocessing of MERFISH images prior to decoding:
         1) remove cell background - when highPassFilter is True
         2) normalize magnitude
-
+        3) add gussian blur - when lowPassFilterSigma is True
+    
     Args
     ----
     dataSetName: input dataset name.
@@ -80,12 +82,23 @@ def run_job(dataSetName: str = None,
     scaleFactors = preprocessing.estimate_scale_factors(
         obj = zp,
         frameNames = zp.get_readout_name())
-            
+    medianValue = np.median([scaleFactors[key] for key in scaleFactors])
+    scaleFactors = dict([ (key, value / medianValue) \
+                     for key, value in scaleFactors.items() ])
+
     # normalize image intensity
     zp = preprocessing.scale_readout_images(
         obj = zp,
         frameNames = zp.get_bit_name(),
         scaleFactors = scaleFactors)
+    
+    # low pass filter
+    if lowPassFilterSigma is not None:
+        zp = imagefilter.low_pass_filter(
+            obj = zp,
+            frameNames = zp.get_bit_name(),
+            sigma = lowPassFilterSigma, 
+            windowSize = 3)
 
     # save processed images
     np.savez_compressed(
