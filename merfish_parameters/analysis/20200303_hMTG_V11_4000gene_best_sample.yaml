@@ -39,7 +39,7 @@ segmentation:
 
 decoding:
   maxCores: 1
-  borderSize: 80
+  borderSize: 100
   magnitudeThreshold: 1
   distanceThreshold: 0.6
 
@@ -51,7 +51,7 @@ exportFeatures:
   bufferSize: 20
 
 filterFeatures:
-  borderSize: 50
+  borderSize: 100
   minZplane: 3
 
 filterBarcodes:

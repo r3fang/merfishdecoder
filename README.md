@@ -29,7 +29,7 @@ $ printf 'DATA_HOME=/RawData/MERFISH_raw_data/\nANALYSIS_HOME=/Analysis/MERFISH/
 ```bash
 $ snakemake -j 10 \
 	--snakefile merfish_parameters/snakemake/SnakefilePSM \
-	--configfile merfish_parameters/analysis/demo.yaml \
+	--configfile merfish_parameters/analysis/20200303_hMTG_V11_4000gene_best_sample.yaml \
 	--cluster-config merfish_parameters/clusters/cluster.json \
 	--cluster "sbatch -p {cluster.partition} -N {cluster.node} --mem={cluster.mem} -t {cluster.time} -o {cluster.out} -e {cluster.err}" \
 	--latency-wait 120 \
@@ -37,14 +37,12 @@ $ snakemake -j 10 \
 
 $ snakemake -j 100 \
 	--snakefile ~/merfish_parameters/snakemake/Snakefile \
-	--configfile ~/merfish_parameters/analysis/demo.yaml \
+	--configfile ~/merfish_parameters/analysis/20200303_hMTG_V11_4000gene_best_sample.yaml \
 	--cluster-config ~/merfish_parameters/clusters/cluster.json \
 	--cluster "sbatch -p {cluster.partition} -N {cluster.node} --mem={cluster.mem} -t {cluster.time} -o {cluster.out} -e {cluster.err}" \
 	--latency-wait 120 \
 	--restart-times 2
 ```
-
-
 
 
 
