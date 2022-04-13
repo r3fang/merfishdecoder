@@ -598,10 +598,35 @@ class Zplane(object):
         Load warped images.
         
         """
+        
         movie = tifffile.imread(filename)
         frameNames = self.get_readout_name()
         for fn in frameNames:
             self._frames[fn]._img = \
                 movie[frameNames.index(fn)].copy()
         del movie
+
+    def load_processed_images(self, filename):
+
+        """
+        
+        Load processed images.
+        
+        """
+        
+        if filename.endswith("npz"):
+            movie = np.load(filename)
+            movie = movie["arr_0"]
+        elif filename.endswith('.npy'):
+            movie = np.load(filename)
+            movie = movie["arr_0"]
+        elif filename.endswith('.tif'):
+            movie = tifffile.imread(filename)
+
+        frameNames = self.get_bit_name()
+        for fn in frameNames:
+            self._frames[fn]._img = \
+                movie[frameNames.index(fn)].copy()
+        del movie
+
     

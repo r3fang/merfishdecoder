@@ -1,5 +1,6 @@
 import os
 import scipy
+import sys
 
 from scipy import io
 from scipy import sparse
@@ -67,8 +68,10 @@ def run_job(dataSetName: str = None,
     features = geo.read_file(
         featuresName) 
     
-    features.global_x = features.centroid.x
-    features.global_y = features.centroid.y
+    # assign global x and y
+    features = features.assign(global_x = features.centroid.x)
+    features = features.assign(global_y = features.centroid.y)
+
     # create the centroid for each feature
     features = pd.DataFrame([[ 
         features[features.name == fn].fov.mean(),
@@ -114,7 +117,16 @@ def run_job(dataSetName: str = None,
         index = False, header = False, sep='\t')
     
     utilities.print_checkpoint("Done")
+
+def main():
+    dataSetName = sys.argv[1]
+    barcodesName = sys.argv[2]
+    featuresName = sys.argv[3]
+    outputName = sys.argv[4]
+    maxCores = int(sys.argv[5])
+    run_job(dataSetName, barcodesName, featuresName, outputName, maxCores)
     
 if __name__ == "__main__":
     main()
+
 

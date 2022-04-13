@@ -15,7 +15,10 @@ from merfishdecoder.util import imagefilter
 from merfishdecoder.util import utilities
 from merfishdecoder.util import segmentation
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1e3ee130d7256ac122fa56c033538dda702739b
 class SimpleGlobalAlignment():
 
     """A global alignment that uses the theoretical stage positions in
@@ -218,7 +221,11 @@ def main():
     refFrameIndex = 0
     highPassFilterSigma = 3
     mosaicMicronsPerPixel = 0.5
+<<<<<<< HEAD
     zposes = [3.0]
+=======
+    zposes = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+>>>>>>> c1e3ee130d7256ac122fa56c033538dda702739b
     
     dataSet = dataset.MERFISHDataSet(
         dataDirectoryName = dataSetName)
@@ -239,6 +246,7 @@ def main():
                 fov=fov, zpos=zpos)
             frameNames = [ zp.get_readout_name()[refFrameIndex], featureName]
             zp.load_readout_images(frameNames)
+<<<<<<< HEAD
             (zp, errors) = registration.correct_drift(
                 obj = zp,
                 frameNames = frameNames,
@@ -248,6 +256,17 @@ def main():
                 zp.get_readout_image_from_readout_name(featureName))
         inputImage = np.array(featureImages).max(axis=0)
 
+=======
+            # (zp, errors) = registration.correct_drift(
+            #     obj = zp,
+            #     frameNames = frameNames,
+            #     refFrameIndex = refFrameIndex,
+            #     highPassSigma = highPassFilterSigma)
+            featureImages.append(
+                zp.get_readout_image_from_readout_name(featureName))
+        inputImage = np.array(featureImages).max(axis=0)
+        
+>>>>>>> c1e3ee130d7256ac122fa56c033538dda702739b
         if cropWidth > 0:
             inputImage[:cropWidth, :] = 0
             inputImage[inputImage.shape[0] - cropWidth:, :] = 0
@@ -274,4 +293,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1e3ee130d7256ac122fa56c033538dda702739b
